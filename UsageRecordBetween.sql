@@ -1,0 +1,1 @@
+SELECT * FROM usage_records WHERE usage_date BETWEEN '2026-09-01' AND '2026-09-03' 
