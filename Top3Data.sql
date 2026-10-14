@@ -1,1 +1,0 @@
-SELECT * FROM usage_records ORDER BY quantity DESC LIMIT 3

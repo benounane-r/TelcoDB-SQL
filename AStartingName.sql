@@ -1,1 +1,0 @@
-SELECT * FROM customers WHERE full_name LIKE 'A%'

@@ -1,0 +1,26 @@
+=== 00_integrity.sql ===
+
+[1] Are there subscriptions that point to a customer who does not exist?
+    0 rows, matches expected
+
+[2] Are there subscriptions that point to a plan that does not exist?
+    0 rows, matches expected
+
+[3] Are there usage records that point to a subscription that does not exist?
+    0 rows, matches expected
+
+[4] Is any phone number used by more than one subscription?
+    0 rows, matches expected
+
+[5] Are there look-alike customers (same name, city and signup date)?
+    0 rows, matches expected
+
+[6] Is there usage dated before the line was activated?
+    0 rows, matches expected
+
+[7] Is there usage dated after the line was cancelled?
+    0 rows, matches expected
+
+[8] Does SQLite itself report any foreign key violation?
+    0 rows, matches expected
+

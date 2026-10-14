@@ -1,0 +1,1666 @@
+=== 01_joins.sql ===
+
+[1] How many ACTIVE subscribers does each plan have, including plans with none?
+    6 rows, matches expected
+
+plan_id  plan_name     active_subscribers
+-------  ------------  ------------------
+1        Starter       330
+4        Prepaid Lite  291
+2        Plus          271
+5        Prepaid Plus  202
+3        Max           139
+6        Legacy 2019   0
+
+[2] Which plans have never had a subscriber?
+    1 rows, matches expected
+
+plan_id  plan_name
+-------  -----------
+6        Legacy 2019
+
+[3] Which customers have no subscription at all?
+    100 rows, matches expected
+
+customer_id  full_name        city
+-----------  ---------------  ---------
+16           Mehmet Kurt      Istanbul
+27           Zeynep Benali    Izmir
+31           Zeynep Bouzid    Izmir
+34           Emre Aydın       Istanbul
+43           Hakan Güneş      Gaziantep
+68           Amira Kurt       Ankara
+82           Cem Demir        Istanbul
+110          Ayşe Aydın       Istanbul
+135          Tarek Koç        Istanbul
+138          Amira Bulut      Istanbul
+141          Burak Bulut      Bursa
+150          Sara Kaya        Antalya
+156          Murat Koç        Gaziantep
+168          Ayşe Doğan       Konya
+182          Can Polat        Izmir
+189          Nour Doğan       Istanbul
+190          Ayşe Bulut       Adana
+193          Zeynep Mansouri  Bursa
+198          Lina Yıldız      Gaziantep
+208          Can Yılmaz       Gaziantep
+210          Selin Yılmaz     Gaziantep
+228          Esra Acar        Istanbul
+232          Can Arslan       Istanbul
+237          Can Demir        Istanbul
+238          Zeynep Avcı      Istanbul
+253          Emre Haddad      Istanbul
+274          Elif Haddad      Ankara
+277          Sara Şahin       Istanbul
+281          Amira Koç        Istanbul
+311          Lina Benali      Antalya
+321          Fatma Erdem      Antalya
+327          Murat Avcı       Ankara
+333          Yasmin Öztürk    Istanbul
+368          Selin Tekin      Gaziantep
+383          Ayşe Doğan       Istanbul
+390          Lina Türk        Istanbul
+397          Karim Korkmaz    Konya
+404          Fatma Acar       Istanbul
+415          Burak Aydın      Antalya
+419          Mehmet Benali    Bursa
+422          Yasmin Polat     Izmir
+423          Selin Yılmaz     Istanbul
+424          Fatma Güneş      Istanbul
+438          Karim Kaya       Istanbul
+450          Nour Taş         Konya
+454          Tarek Özdemir    Ankara
+469          Zeynep Yıldız    Istanbul
+481          Amira Karaca     Gaziantep
+486          Tarek Haddad     Ankara
+489          Ayşe Koç         Ankara
+502          Nour Yıldız      Istanbul
+504          Nour Karaca      Ankara
+515          Fatma Erdem      Istanbul
+581          Merve Korkmaz    Istanbul
+611          Zeynep Bulut     Istanbul
+620          Deniz Çelik      Gaziantep
+621          Deniz Erdem      NULL
+623          Lina Avcı        Istanbul
+627          Mustafa Işık     Antalya
+628          Fatma Haddad     Bursa
+632          Merve Bulut      Izmir
+653          Esra Korkmaz     Ankara
+666          Merve Kaya       Izmir
+688          Zeynep Şahin     Istanbul
+704          Merve Arslan     Ankara
+705          Esra Mansouri    NULL
+730          Emre Güneş       Ankara
+738          Cem Mansouri     Istanbul
+745          Leyla Çelik      Istanbul
+753          Yasmin Koç       Gaziantep
+757          Zeynep Özdemir   Adana
+761          Mehmet Demir     Istanbul
+764          Esra Yıldız      Istanbul
+776          Karim Erdem      Istanbul
+781          Fatma Kaya       Istanbul
+783          Deniz Demir      Istanbul
+784          Sara Yıldız      Izmir
+795          Nour Koç         Ankara
+798          Amira Haddad     Istanbul
+799          Emre Korkmaz     Ankara
+842          Can Güneş        Istanbul
+845          Merve Kurt       Izmir
+860          Emre Türk        Adana
+867          Emre Taş         Istanbul
+873          Yasmin Kaya      Ankara
+888          Esra Aksoy       Antalya
+901          Yasmin Erdem     Gaziantep
+902          Sara Erdem       Bursa
+909          Yasmin Polat     Istanbul
+916          Zeynep Demir     Istanbul
+922          Elif Koç         Gaziantep
+930          Emre Haddad      Adana
+956          Ayşe Avcı        Istanbul
+957          Yusuf Doğan      NULL
+965          Leyla Türk       Konya
+970          Nour Aksoy       Ankara
+971          Deniz Yıldız     Antalya
+973          Omar Güneş       Ankara
+985          Elif Kurt        Istanbul
+986          Ayşe Yıldız      Istanbul
+
+[4] Which customers have no ACTIVE subscription (including those with only cancelled or suspended lines)?
+    194 rows, matches expected
+
+customer_id  full_name        city
+-----------  ---------------  ---------
+7            Merve Arslan     Istanbul
+12           Can Çelik        Istanbul
+16           Mehmet Kurt      Istanbul
+23           Ayşe Bouzid      Antalya
+27           Zeynep Benali    Izmir
+31           Zeynep Bouzid    Izmir
+34           Emre Aydın       Istanbul
+40           Hakan Arslan     Antalya
+41           Elif Güneş       Ankara
+43           Hakan Güneş      Gaziantep
+48           Deniz Kaya       Ankara
+68           Amira Kurt       Ankara
+69           Deniz Kurt       Adana
+82           Cem Demir        Istanbul
+83           Deniz Erdem      Bursa
+98           Fatma Polat      Izmir
+102          Yasmin Kurt      Istanbul
+103          Omar Demir       Bursa
+107          Deniz Haddad     Ankara
+110          Ayşe Aydın       Istanbul
+117          Kerem Bouzid     Izmir
+122          Fatma Öztürk     Istanbul
+125          Selin Güneş      NULL
+135          Tarek Koç        Istanbul
+137          Fatma Karaca     Izmir
+138          Amira Bulut      Istanbul
+139          Tarek Polat      Adana
+141          Burak Bulut      Bursa
+150          Sara Kaya        Antalya
+153          Mustafa Koç      Ankara
+156          Murat Koç        Gaziantep
+166          Sara Aksoy       Istanbul
+168          Ayşe Doğan       Konya
+173          Amira Özdemir    Istanbul
+182          Can Polat        Izmir
+185          Lina Öztürk      Konya
+189          Nour Doğan       Istanbul
+190          Ayşe Bulut       Adana
+193          Zeynep Mansouri  Bursa
+198          Lina Yıldız      Gaziantep
+203          Fatma Mansouri   Konya
+208          Can Yılmaz       Gaziantep
+210          Selin Yılmaz     Gaziantep
+211          Elif Mansouri    Gaziantep
+222          Fatma Haddad     Istanbul
+224          Lina Aksoy       Istanbul
+228          Esra Acar        Istanbul
+230          Yasmin Güneş     Istanbul
+232          Can Arslan       Istanbul
+233          Derya Arslan     Izmir
+237          Can Demir        Istanbul
+238          Zeynep Avcı      Istanbul
+239          Kerem Erdem      Ankara
+247          Karim Güneş      Adana
+249          Nour Polat       Antalya
+253          Emre Haddad      Istanbul
+256          Tarek Mansouri   Gaziantep
+267          Tarek Haddad     Istanbul
+274          Elif Haddad      Ankara
+277          Sara Şahin       Istanbul
+281          Amira Koç        Istanbul
+308          Amira Aksoy      Istanbul
+311          Lina Benali      Antalya
+314          Zeynep Taş       Adana
+318          Ahmet Demir      Izmir
+320          Burak Korkmaz    Izmir
+321          Fatma Erdem      Antalya
+327          Murat Avcı       Ankara
+333          Yasmin Öztürk    Istanbul
+343          Lina Aydın       Istanbul
+344          Kerem Aydın      Konya
+347          Emre Yılmaz      Istanbul
+349          Ahmet Polat      Istanbul
+360          Omar Öztürk      Adana
+368          Selin Tekin      Gaziantep
+383          Ayşe Doğan       Istanbul
+390          Lina Türk        Istanbul
+391          Ayşe Öztürk      Antalya
+396          Tarek Aydın      Izmir
+397          Karim Korkmaz    Konya
+404          Fatma Acar       Istanbul
+408          Yasmin Karaca    Antalya
+415          Burak Aydın      Antalya
+419          Mehmet Benali    Bursa
+422          Yasmin Polat     Izmir
+423          Selin Yılmaz     Istanbul
+424          Fatma Güneş      Istanbul
+434          Deniz Aydın      Konya
+436          Lina Çelik       Ankara
+438          Karim Kaya       Istanbul
+441          Leyla Tekin      Bursa
+450          Nour Taş         Konya
+451          Yusuf Taş        Izmir
+454          Tarek Özdemir    Ankara
+456          Tarek Avcı       Gaziantep
+469          Zeynep Yıldız    Istanbul
+480          Zeynep Mansouri  Istanbul
+481          Amira Karaca     Gaziantep
+486          Tarek Haddad     Ankara
+489          Ayşe Koç         Ankara
+494          Yasmin Çelik     Ankara
+496          Ece Tekin        Ankara
+502          Nour Yıldız      Istanbul
+504          Nour Karaca      Ankara
+515          Fatma Erdem      Istanbul
+523          Nour Mansouri    Ankara
+541          Lina Benali      Bursa
+546          Esra Işık        Izmir
+552          Merve Aksoy      Antalya
+581          Merve Korkmaz    Istanbul
+582          Fatma Yılmaz     Adana
+587          Merve Aksoy      Istanbul
+611          Zeynep Bulut     Istanbul
+614          Kerem Kurt       Ankara
+620          Deniz Çelik      Gaziantep
+621          Deniz Erdem      NULL
+623          Lina Avcı        Istanbul
+627          Mustafa Işık     Antalya
+628          Fatma Haddad     Bursa
+630          Deniz Yılmaz     Ankara
+632          Merve Bulut      Izmir
+653          Esra Korkmaz     Ankara
+662          Lina Kaya        Antalya
+663          Lina Aksoy       Gaziantep
+666          Merve Kaya       Izmir
+670          Burak Korkmaz    Bursa
+677          Deniz Bouzid     Istanbul
+688          Zeynep Şahin     Istanbul
+692          Tarek Yıldız     Ankara
+704          Merve Arslan     Ankara
+705          Esra Mansouri    NULL
+706          Esra Aksoy       Bursa
+722          Merve Türk       Istanbul
+723          Omar Arslan      Ankara
+730          Emre Güneş       Ankara
+734          Sara Mansouri    Izmir
+738          Cem Mansouri     Istanbul
+741          Cem Kurt         Istanbul
+745          Leyla Çelik      Istanbul
+753          Yasmin Koç       Gaziantep
+757          Zeynep Özdemir   Adana
+761          Mehmet Demir     Istanbul
+764          Esra Yıldız      Istanbul
+773          Esra Benali      Konya
+776          Karim Erdem      Istanbul
+781          Fatma Kaya       Istanbul
+783          Deniz Demir      Istanbul
+784          Sara Yıldız      Izmir
+793          Mustafa Bouzid   Konya
+795          Nour Koç         Ankara
+797          Sara Bouzid      Izmir
+798          Amira Haddad     Istanbul
+799          Emre Korkmaz     Ankara
+821          Omar Bouzid      Istanbul
+842          Can Güneş        Istanbul
+845          Merve Kurt       Izmir
+849          Murat Tekin      Adana
+860          Emre Türk        Adana
+867          Emre Taş         Istanbul
+873          Yasmin Kaya      Ankara
+885          Can Güneş        Adana
+888          Esra Aksoy       Antalya
+892          Murat Öztürk     Ankara
+901          Yasmin Erdem     Gaziantep
+902          Sara Erdem       Bursa
+909          Yasmin Polat     Istanbul
+912          Ece Güneş        Ankara
+916          Zeynep Demir     Istanbul
+918          Tarek Şahin      Adana
+920          Ahmet Türk       Ankara
+922          Elif Koç         Gaziantep
+923          Ece Kaya         Izmir
+930          Emre Haddad      Adana
+937          Sara Taş         Bursa
+943          Can Aydın        Istanbul
+950          Esra Erdem       Ankara
+951          Mustafa Güneş    Istanbul
+956          Ayşe Avcı        Istanbul
+957          Yusuf Doğan      NULL
+958          Deniz Demir      Gaziantep
+965          Leyla Türk       Konya
+968          Mehmet Haddad    Istanbul
+970          Nour Aksoy       Ankara
+971          Deniz Yıldız     Antalya
+973          Omar Güneş       Ankara
+974          Sara Avcı        Istanbul
+977          Mustafa Benali   Gaziantep
+979          Ece Taş          Antalya
+985          Elif Kurt        Istanbul
+986          Ayşe Yıldız      Istanbul
+987          Ahmet Demir      Konya
+988          Merve Aksoy      Istanbul
+993          Hakan Öztürk     Konya
+996          Kerem Aydın      Ankara
+
+[5] Which customers HAVE lines, but none of them active? (the gap between the two queries above)
+    94 rows, matches expected
+
+customer_id  full_name        lines_total
+-----------  ---------------  -----------
+7            Merve Arslan     2
+12           Can Çelik        1
+23           Ayşe Bouzid      1
+40           Hakan Arslan     2
+41           Elif Güneş       1
+48           Deniz Kaya       1
+69           Deniz Kurt       1
+83           Deniz Erdem      1
+98           Fatma Polat      1
+102          Yasmin Kurt      1
+103          Omar Demir       1
+107          Deniz Haddad     2
+117          Kerem Bouzid     1
+122          Fatma Öztürk     1
+125          Selin Güneş      1
+137          Fatma Karaca     1
+139          Tarek Polat      1
+153          Mustafa Koç      1
+166          Sara Aksoy       1
+173          Amira Özdemir    1
+185          Lina Öztürk      1
+203          Fatma Mansouri   1
+211          Elif Mansouri    1
+222          Fatma Haddad     1
+224          Lina Aksoy       1
+230          Yasmin Güneş     1
+233          Derya Arslan     2
+239          Kerem Erdem      1
+247          Karim Güneş      2
+249          Nour Polat       1
+256          Tarek Mansouri   2
+267          Tarek Haddad     1
+308          Amira Aksoy      1
+314          Zeynep Taş       1
+318          Ahmet Demir      1
+320          Burak Korkmaz    1
+343          Lina Aydın       1
+344          Kerem Aydın      1
+347          Emre Yılmaz      2
+349          Ahmet Polat      1
+360          Omar Öztürk      1
+391          Ayşe Öztürk      1
+396          Tarek Aydın      1
+408          Yasmin Karaca    1
+434          Deniz Aydın      1
+436          Lina Çelik       1
+441          Leyla Tekin      1
+451          Yusuf Taş        1
+456          Tarek Avcı       1
+480          Zeynep Mansouri  1
+494          Yasmin Çelik     1
+496          Ece Tekin        1
+523          Nour Mansouri    1
+541          Lina Benali      1
+546          Esra Işık        1
+552          Merve Aksoy      1
+582          Fatma Yılmaz     1
+587          Merve Aksoy      1
+614          Kerem Kurt       1
+630          Deniz Yılmaz     1
+662          Lina Kaya        1
+663          Lina Aksoy       2
+670          Burak Korkmaz    1
+677          Deniz Bouzid     1
+692          Tarek Yıldız     1
+706          Esra Aksoy       1
+722          Merve Türk       1
+723          Omar Arslan      2
+734          Sara Mansouri    1
+741          Cem Kurt         1
+773          Esra Benali      1
+793          Mustafa Bouzid   1
+797          Sara Bouzid      1
+821          Omar Bouzid      1
+849          Murat Tekin      1
+885          Can Güneş        1
+892          Murat Öztürk     1
+912          Ece Güneş        1
+918          Tarek Şahin      2
+920          Ahmet Türk       1
+923          Ece Kaya         1
+937          Sara Taş         1
+943          Can Aydın        1
+950          Esra Erdem       1
+951          Mustafa Güneş    1
+958          Deniz Demir      1
+968          Mehmet Haddad    1
+974          Sara Avcı        1
+977          Mustafa Benali   1
+979          Ece Taş          2
+987          Ahmet Demir      1
+988          Merve Aksoy      1
+993          Hakan Öztürk     1
+996          Kerem Aydın      2
+
+[6] List every active line with its customer, city, plan and monthly fee.
+    1233 rows, matches expected
+
+sub_id  msisdn            full_name        city       plan_name     monthly_fee
+------  ----------------  ---------------  ---------  ------------  -----------
+1       +90 500 000 0001  Leyla Taş        Ankara     Prepaid Plus  180.0
+2       +90 500 000 0002  Esra Yıldız      Konya      Plus          450.0
+3       +90 500 000 0003  Ayşe Güneş       Istanbul   Max           750.0
+4       +90 500 000 0004  Ece Tekin        Istanbul   Prepaid Plus  180.0
+5       +90 500 000 0005  Mehmet Kurt      Izmir      Prepaid Plus  180.0
+7       +90 500 000 0007  Hakan Öztürk     Istanbul   Prepaid Plus  180.0
+9       +90 500 000 0009  Derya Çelik      Izmir      Starter       250.0
+10      +90 500 000 0010  Leyla Mansouri   Bursa      Plus          450.0
+11      +90 500 000 0011  Zeynep Aksoy     Istanbul   Plus          450.0
+12      +90 500 000 0012  Derya Kaya       Istanbul   Max           750.0
+14      +90 500 000 0014  Murat Haddad     Adana      Starter       250.0
+15      +90 500 000 0015  Ece Mansouri     Istanbul   Starter       250.0
+16      +90 500 000 0016  Esra Avcı        Bursa      Prepaid Lite  100.0
+17      +90 500 000 0017  Lina Güneş       Ankara     Prepaid Lite  100.0
+19      +90 500 000 0019  Lina Kurt        Istanbul   Starter       250.0
+20      +90 500 000 0020  Omar Yılmaz      Istanbul   Starter       250.0
+21      +90 500 000 0021  Mehmet Polat     Istanbul   Prepaid Lite  100.0
+22      +90 500 000 0022  Karim Şahin      Adana      Plus          450.0
+24      +90 500 000 0024  Merve Türk       Konya      Plus          450.0
+25      +90 500 000 0025  Can Benali       Konya      Plus          450.0
+26      +90 500 000 0026  Derya Aydın      Ankara     Prepaid Lite  100.0
+27      +90 500 000 0027  Hakan Demir      Adana      Prepaid Lite  100.0
+28      +90 500 000 0028  Amira Korkmaz    Konya      Prepaid Plus  180.0
+29      +90 500 000 0029  Leyla Şahin      Adana      Prepaid Plus  180.0
+30      +90 500 000 0030  Tarek Bulut      Istanbul   Prepaid Plus  180.0
+32      +90 500 000 0032  Leyla Taş        Ankara     Prepaid Plus  180.0
+33      +90 500 000 0033  Leyla Bulut      Izmir      Starter       250.0
+35      +90 500 000 0035  Tarek Mansouri   Istanbul   Plus          450.0
+36      +90 500 000 0036  Merve Taş        Antalya    Max           750.0
+37      +90 500 000 0037  Ece Işık         Istanbul   Starter       250.0
+38      +90 500 000 0038  Merve Bulut      Istanbul   Prepaid Plus  180.0
+39      +90 500 000 0039  Nour Türk        Istanbul   Prepaid Lite  100.0
+40      +90 500 000 0040  Emre Kaya        Istanbul   Prepaid Plus  180.0
+41      +90 500 000 0041  Nour Aydın       Konya      Plus          450.0
+42      +90 500 000 0042  Can Kaya         Izmir      Prepaid Lite  100.0
+43      +90 500 000 0043  Ahmet Koç        Istanbul   Plus          450.0
+44      +90 500 000 0044  Hakan Öztürk     Istanbul   Plus          450.0
+45      +90 500 000 0045  Derya Aydın      Antalya    Max           750.0
+46      +90 500 000 0046  Burak Yıldız     Ankara     Starter       250.0
+47      +90 500 000 0047  Sara Acar        Istanbul   Prepaid Plus  180.0
+48      +90 500 000 0048  Yusuf Öztürk     Ankara     Prepaid Lite  100.0
+49      +90 500 000 0049  Nour Özdemir     Istanbul   Starter       250.0
+51      +90 500 000 0051  Tarek Kaya       Bursa      Plus          450.0
+53      +90 500 000 0053  Yusuf Taş        Izmir      Starter       250.0
+54      +90 500 000 0054  Sara Kaya        Konya      Plus          450.0
+55      +90 500 000 0055  Mustafa Koç      Istanbul   Starter       250.0
+57      +90 500 000 0057  Tarek Özdemir    Adana      Max           750.0
+58      +90 500 000 0058  Nour Aksoy       Izmir      Starter       250.0
+59      +90 500 000 0059  Ece Karaca       Ankara     Plus          450.0
+60      +90 500 000 0060  Tarek Aksoy      Adana      Prepaid Lite  100.0
+61      +90 500 000 0061  Ece Yıldız       Adana      Plus          450.0
+63      +90 500 000 0063  Ece Polat        Antalya    Prepaid Plus  180.0
+64      +90 500 000 0064  Ahmet Karaca     Istanbul   Starter       250.0
+66      +90 500 000 0066  Leyla Tekin      Ankara     Prepaid Lite  100.0
+67      +90 500 000 0067  Fatma Bulut      Konya      Max           750.0
+68      +90 500 000 0068  Omar Yıldız      Istanbul   Max           750.0
+69      +90 500 000 0069  Sara Demir       Antalya    Prepaid Lite  100.0
+70      +90 500 000 0070  Ahmet Benali     Gaziantep  Plus          450.0
+72      +90 500 000 0072  Emre Bulut       Adana      Starter       250.0
+73      +90 500 000 0073  Ahmet Şahin      Istanbul   Starter       250.0
+74      +90 500 000 0074  Ahmet Aydın      Izmir      Prepaid Lite  100.0
+75      +90 500 000 0075  Yasmin Demir     Ankara     Prepaid Plus  180.0
+76      +90 500 000 0076  Esra Polat       Istanbul   Plus          450.0
+78      +90 500 000 0078  Ayşe Işık        Istanbul   Prepaid Lite  100.0
+79      +90 500 000 0079  Ayşe Aksoy       Ankara     Starter       250.0
+80      +90 500 000 0080  Selin Kurt       Izmir      Starter       250.0
+81      +90 500 000 0081  Kerem Arslan     Antalya    Plus          450.0
+82      +90 500 000 0082  Emre Güneş       Adana      Prepaid Lite  100.0
+83      +90 500 000 0083  Yusuf Arslan     Bursa      Max           750.0
+84      +90 500 000 0084  Murat Arslan     Ankara     Prepaid Lite  100.0
+85      +90 500 000 0085  Ayşe Çelik       Istanbul   Max           750.0
+86      +90 500 000 0086  Cem Kurt         Istanbul   Prepaid Lite  100.0
+87      +90 500 000 0087  Karim Güneş      Izmir      Max           750.0
+89      +90 500 000 0089  Ece Koç          Adana      Prepaid Lite  100.0
+90      +90 500 000 0090  Lina Demir       Bursa      Plus          450.0
+91      +90 500 000 0091  Ayşe Türk        Konya      Max           750.0
+93      +90 500 000 0093  Leyla Çelik      Ankara     Starter       250.0
+94      +90 500 000 0094  Cem Polat        Adana      Max           750.0
+95      +90 500 000 0095  Derya Türk       Antalya    Plus          450.0
+96      +90 500 000 0096  Nour Işık        Istanbul   Prepaid Lite  100.0
+97      +90 500 000 0097  Leyla Güneş      Istanbul   Starter       250.0
+98      +90 500 000 0098  Merve Demir      Istanbul   Plus          450.0
+99      +90 500 000 0099  Derya Erdem      Istanbul   Prepaid Lite  100.0
+101     +90 500 000 0101  Burak Tekin      Istanbul   Starter       250.0
+104     +90 500 000 0104  Merve Şahin      Gaziantep  Prepaid Plus  180.0
+105     +90 500 000 0105  Leyla Polat      Bursa      Prepaid Lite  100.0
+106     +90 500 000 0106  Sara Güneş       Istanbul   Prepaid Plus  180.0
+107     +90 500 000 0107  Hakan Demir      Adana      Starter       250.0
+108     +90 500 000 0108  Cem Özdemir      Bursa      Starter       250.0
+110     +90 500 000 0110  Hakan Karaca     Adana      Starter       250.0
+111     +90 500 000 0111  Sara Doğan       Antalya    Prepaid Lite  100.0
+113     +90 500 000 0113  Fatma Bouzid     Konya      Prepaid Plus  180.0
+114     +90 500 000 0114  Selin Işık       Ankara     Prepaid Lite  100.0
+115     +90 500 000 0115  Esra Haddad      Istanbul   Max           750.0
+117     +90 500 000 0117  Murat Haddad     Gaziantep  Max           750.0
+118     +90 500 000 0118  Ece Taş          Adana      Prepaid Lite  100.0
+119     +90 500 000 0119  Tarek Yıldız     Istanbul   Prepaid Lite  100.0
+120     +90 500 000 0120  Mehmet Avcı      Istanbul   Plus          450.0
+121     +90 500 000 0121  Kerem Koç        Istanbul   Plus          450.0
+124     +90 500 000 0124  Kerem Benali     Ankara     Prepaid Plus  180.0
+125     +90 500 000 0125  Yasmin Acar      Antalya    Starter       250.0
+127     +90 500 000 0127  Ece Şahin        Istanbul   Plus          450.0
+128     +90 500 000 0128  Lina Türk        Ankara     Prepaid Lite  100.0
+129     +90 500 000 0129  Mustafa Aksoy    Bursa      Prepaid Lite  100.0
+130     +90 500 000 0130  Hakan Özdemir    Istanbul   Starter       250.0
+131     +90 500 000 0131  Cem Mansouri     Antalya    Plus          450.0
+132     +90 500 000 0132  Fatma Doğan      Ankara     Max           750.0
+134     +90 500 000 0134  Ece Işık         Istanbul   Prepaid Plus  180.0
+135     +90 500 000 0135  Amira Güneş      Gaziantep  Plus          450.0
+138     +90 500 000 0138  Lina Işık        Bursa      Starter       250.0
+139     +90 500 000 0139  Hakan Kurt       Istanbul   Max           750.0
+140     +90 500 000 0140  Yusuf Yılmaz     Istanbul   Plus          450.0
+141     +90 500 000 0141  Mustafa Polat    Konya      Prepaid Lite  100.0
+142     +90 500 000 0142  Amira Taş        Ankara     Plus          450.0
+143     +90 500 000 0143  Nour Özdemir     Antalya    Starter       250.0
+144     +90 500 000 0144  Yasmin Güneş     NULL       Starter       250.0
+145     +90 500 000 0145  Zeynep Avcı      Istanbul   Starter       250.0
+146     +90 500 000 0146  Murat Avcı       Izmir      Prepaid Lite  100.0
+147     +90 500 000 0147  Nour Aydın       Bursa      Prepaid Plus  180.0
+148     +90 500 000 0148  Yasmin Özdemir   Izmir      Prepaid Lite  100.0
+149     +90 500 000 0149  Karim Aydın      Istanbul   Starter       250.0
+150     +90 500 000 0150  Lina Demir       Bursa      Prepaid Lite  100.0
+151     +90 500 000 0151  Emre Demir       Bursa      Prepaid Plus  180.0
+152     +90 500 000 0152  Amira Benali     Adana      Max           750.0
+154     +90 500 000 0154  Hakan Arslan     NULL       Prepaid Plus  180.0
+155     +90 500 000 0155  Yusuf Aksoy      Istanbul   Starter       250.0
+156     +90 500 000 0156  Can Mansouri     Izmir      Plus          450.0
+157     +90 500 000 0157  Ayşe Işık        Bursa      Starter       250.0
+159     +90 500 000 0159  Emre Bulut       Adana      Starter       250.0
+160     +90 500 000 0160  Burak Özdemir    Adana      Starter       250.0
+161     +90 500 000 0161  Zeynep Polat     Istanbul   Prepaid Plus  180.0
+162     +90 500 000 0162  Murat Koç        Istanbul   Prepaid Lite  100.0
+163     +90 500 000 0163  Ahmet Kurt       Istanbul   Prepaid Lite  100.0
+164     +90 500 000 0164  Hakan Aydın      Gaziantep  Starter       250.0
+165     +90 500 000 0165  Ece Avcı         Istanbul   Prepaid Lite  100.0
+166     +90 500 000 0166  Can Kurt         Gaziantep  Plus          450.0
+167     +90 500 000 0167  Esra Benali      Gaziantep  Plus          450.0
+168     +90 500 000 0168  Murat Avcı       Izmir      Prepaid Lite  100.0
+169     +90 500 000 0169  Yasmin Doğan     NULL       Prepaid Lite  100.0
+170     +90 500 000 0170  Esra Haddad      Adana      Starter       250.0
+171     +90 500 000 0171  Omar Güneş       NULL       Plus          450.0
+172     +90 500 000 0172  Nour Özdemir     Antalya    Prepaid Lite  100.0
+173     +90 500 000 0173  Hakan Aydın      Gaziantep  Max           750.0
+174     +90 500 000 0174  Merve Benali     Istanbul   Prepaid Lite  100.0
+175     +90 500 000 0175  Sara Bouzid      Istanbul   Prepaid Lite  100.0
+176     +90 500 000 0176  Merve Tekin      Izmir      Prepaid Plus  180.0
+177     +90 500 000 0177  Cem Mansouri     Istanbul   Max           750.0
+178     +90 500 000 0178  Lina Şahin       Antalya    Starter       250.0
+179     +90 500 000 0179  Fatma Haddad     Bursa      Prepaid Lite  100.0
+180     +90 500 000 0180  Selin Bouzid     Izmir      Plus          450.0
+181     +90 500 000 0181  Can Avcı         Gaziantep  Prepaid Lite  100.0
+182     +90 500 000 0182  Yasmin Benali    Antalya    Prepaid Lite  100.0
+183     +90 500 000 0183  Zeynep Koç       Istanbul   Plus          450.0
+184     +90 500 000 0184  Mustafa Acar     Istanbul   Starter       250.0
+185     +90 500 000 0185  Ece Güneş        Istanbul   Plus          450.0
+186     +90 500 000 0186  Karim Işık       Istanbul   Starter       250.0
+187     +90 500 000 0187  Mehmet Yılmaz    Istanbul   Starter       250.0
+189     +90 500 000 0189  Can Aydın        Bursa      Max           750.0
+190     +90 500 000 0190  Nour Aydın       Konya      Prepaid Plus  180.0
+191     +90 500 000 0191  Fatma Koç        NULL       Plus          450.0
+192     +90 500 000 0192  Hakan Mansouri   Konya      Prepaid Lite  100.0
+194     +90 500 000 0194  Tarek Öztürk     Istanbul   Prepaid Lite  100.0
+195     +90 500 000 0195  Esra Benali      Istanbul   Plus          450.0
+196     +90 500 000 0196  Derya Demir      Bursa      Starter       250.0
+197     +90 500 000 0197  Tarek Koç        Istanbul   Plus          450.0
+198     +90 500 000 0198  Deniz Demir      Bursa      Plus          450.0
+200     +90 500 000 0200  Fatma Yıldız     Istanbul   Starter       250.0
+201     +90 500 000 0201  Hakan Işık       Antalya    Prepaid Lite  100.0
+202     +90 500 000 0202  Esra Tekin       Istanbul   Prepaid Lite  100.0
+204     +90 500 000 0204  Nour Polat       Izmir      Starter       250.0
+205     +90 500 000 0205  Cem Acar         Istanbul   Starter       250.0
+207     +90 500 000 0207  Yusuf Avcı       Adana      Prepaid Plus  180.0
+208     +90 500 000 0208  Sara Yılmaz      Gaziantep  Plus          450.0
+209     +90 500 000 0209  Merve Yıldız     Izmir      Plus          450.0
+211     +90 500 000 0211  Murat Avcı       Gaziantep  Plus          450.0
+214     +90 500 000 0214  Burak Özdemir    Konya      Starter       250.0
+217     +90 500 000 0217  Deniz Öztürk     Gaziantep  Plus          450.0
+218     +90 500 000 0218  Mustafa Arslan   Bursa      Starter       250.0
+219     +90 500 000 0219  Yusuf Doğan      Istanbul   Starter       250.0
+220     +90 500 000 0220  Yusuf Doğan      Antalya    Prepaid Lite  100.0
+221     +90 500 000 0221  Cem Taş          Istanbul   Prepaid Lite  100.0
+222     +90 500 000 0222  Emre Arslan      Istanbul   Starter       250.0
+223     +90 500 000 0223  Burak Erdem      Istanbul   Plus          450.0
+224     +90 500 000 0224  Derya Acar       Adana      Max           750.0
+225     +90 500 000 0225  Ece Kaya         Istanbul   Starter       250.0
+226     +90 500 000 0226  Ahmet Yıldız     NULL       Starter       250.0
+227     +90 500 000 0227  Amira Korkmaz    Konya      Prepaid Lite  100.0
+228     +90 500 000 0228  Merve Mansouri   Bursa      Plus          450.0
+229     +90 500 000 0229  Elif Çelik       Konya      Plus          450.0
+231     +90 500 000 0231  Deniz Yıldız     Gaziantep  Prepaid Lite  100.0
+232     +90 500 000 0232  Omar Arslan      NULL       Prepaid Lite  100.0
+233     +90 500 000 0233  Derya Özdemir    Izmir      Prepaid Plus  180.0
+234     +90 500 000 0234  Omar Yıldız      Istanbul   Starter       250.0
+235     +90 500 000 0235  Tarek Yılmaz     Ankara     Plus          450.0
+236     +90 500 000 0236  Merve Doğan      Antalya    Plus          450.0
+237     +90 500 000 0237  Zeynep Çelik     Bursa      Starter       250.0
+238     +90 500 000 0238  Ahmet Özdemir    Istanbul   Starter       250.0
+239     +90 500 000 0239  Fatma Arslan     Istanbul   Starter       250.0
+240     +90 500 000 0240  Hakan Haddad     Istanbul   Starter       250.0
+241     +90 500 000 0241  Deniz Arslan     Gaziantep  Prepaid Plus  180.0
+242     +90 500 000 0242  Omar Yılmaz      Istanbul   Prepaid Plus  180.0
+243     +90 500 000 0243  Nour Benali      Izmir      Prepaid Plus  180.0
+244     +90 500 000 0244  Kerem Demir      Adana      Prepaid Lite  100.0
+245     +90 500 000 0245  Ahmet Doğan      Ankara     Prepaid Plus  180.0
+246     +90 500 000 0246  Fatma Haddad     Istanbul   Prepaid Plus  180.0
+247     +90 500 000 0247  Karim Bouzid     Konya      Prepaid Lite  100.0
+249     +90 500 000 0249  Leyla Taş        Bursa      Plus          450.0
+250     +90 500 000 0250  Derya Özdemir    Istanbul   Max           750.0
+251     +90 500 000 0251  Hakan Aksoy      Izmir      Starter       250.0
+253     +90 500 000 0253  Omar Polat       Ankara     Starter       250.0
+254     +90 500 000 0254  Elif Özdemir     Istanbul   Prepaid Plus  180.0
+255     +90 500 000 0255  Karim Aydın      Gaziantep  Prepaid Plus  180.0
+256     +90 500 000 0256  Cem Taş          Gaziantep  Starter       250.0
+257     +90 500 000 0257  Emre Koç         Istanbul   Plus          450.0
+258     +90 500 000 0258  Yasmin Şahin     Istanbul   Prepaid Lite  100.0
+260     +90 500 000 0260  Elif Benali      Istanbul   Plus          450.0
+261     +90 500 000 0261  Ayşe Benali      Istanbul   Prepaid Plus  180.0
+262     +90 500 000 0262  Emre Bouzid      Adana      Starter       250.0
+263     +90 500 000 0263  Cem Karaca       Izmir      Prepaid Lite  100.0
+264     +90 500 000 0264  Kerem Tekin      Gaziantep  Starter       250.0
+265     +90 500 000 0265  Karim Işık       Istanbul   Max           750.0
+266     +90 500 000 0266  Yasmin Avcı      Ankara     Prepaid Lite  100.0
+268     +90 500 000 0268  Mustafa Yılmaz   Istanbul   Starter       250.0
+269     +90 500 000 0269  Nour Arslan      Istanbul   Prepaid Plus  180.0
+271     +90 500 000 0271  Tarek Şahin      NULL       Starter       250.0
+272     +90 500 000 0272  Tarek Polat      Antalya    Prepaid Lite  100.0
+274     +90 500 000 0274  Sara Kaya        Bursa      Prepaid Lite  100.0
+275     +90 500 000 0275  Merve Kurt       Gaziantep  Prepaid Plus  180.0
+276     +90 500 000 0276  Yusuf Özdemir    Ankara     Plus          450.0
+277     +90 500 000 0277  Nour Mansouri    Ankara     Max           750.0
+278     +90 500 000 0278  Kerem Mansouri   Konya      Max           750.0
+279     +90 500 000 0279  Tarek Acar       Istanbul   Prepaid Lite  100.0
+281     +90 500 000 0281  Ayşe Karaca      Adana      Prepaid Plus  180.0
+282     +90 500 000 0282  Yusuf Benali     Ankara     Plus          450.0
+283     +90 500 000 0283  Yasmin Türk      Istanbul   Starter       250.0
+284     +90 500 000 0284  Mehmet Aydın     Istanbul   Plus          450.0
+285     +90 500 000 0285  Yasmin Karaca    Konya      Starter       250.0
+286     +90 500 000 0286  Ahmet Kurt       Istanbul   Prepaid Lite  100.0
+287     +90 500 000 0287  Mustafa Arslan   Bursa      Prepaid Plus  180.0
+288     +90 500 000 0288  Ayşe Işık        Adana      Starter       250.0
+289     +90 500 000 0289  Leyla Demir      Istanbul   Prepaid Plus  180.0
+290     +90 500 000 0290  Derya Demir      Istanbul   Prepaid Plus  180.0
+292     +90 500 000 0292  Esra Güneş       Istanbul   Starter       250.0
+293     +90 500 000 0293  Merve Şahin      Bursa      Starter       250.0
+294     +90 500 000 0294  Amira Bulut      Istanbul   Prepaid Lite  100.0
+295     +90 500 000 0295  Sara Doğan       Antalya    Prepaid Plus  180.0
+296     +90 500 000 0296  Burak Tekin      Istanbul   Prepaid Lite  100.0
+297     +90 500 000 0297  Ahmet Haddad     Istanbul   Prepaid Lite  100.0
+298     +90 500 000 0298  Emre Güneş       Adana      Prepaid Plus  180.0
+299     +90 500 000 0299  Cem Polat        Istanbul   Prepaid Lite  100.0
+300     +90 500 000 0300  Yusuf Kurt       Bursa      Prepaid Lite  100.0
+301     +90 500 000 0301  Selin Işık       Antalya    Plus          450.0
+305     +90 500 000 0305  Mehmet Benali    Istanbul   Prepaid Lite  100.0
+306     +90 500 000 0306  Esra Benali      Gaziantep  Plus          450.0
+307     +90 500 000 0307  Mustafa Polat    Istanbul   Max           750.0
+308     +90 500 000 0308  Esra Tekin       Gaziantep  Prepaid Lite  100.0
+310     +90 500 000 0310  Emre Avcı        Istanbul   Prepaid Lite  100.0
+311     +90 500 000 0311  Murat Haddad     Konya      Max           750.0
+312     +90 500 000 0312  Deniz Mansouri   Antalya    Max           750.0
+313     +90 500 000 0313  Selin Haddad     Konya      Max           750.0
+314     +90 500 000 0314  Yasmin Polat     NULL       Max           750.0
+315     +90 500 000 0315  Emre Erdem       Gaziantep  Starter       250.0
+317     +90 500 000 0317  Nour Aydın       Konya      Prepaid Plus  180.0
+318     +90 500 000 0318  Ayşe Korkmaz     Gaziantep  Max           750.0
+319     +90 500 000 0319  Mehmet Acar      Ankara     Plus          450.0
+320     +90 500 000 0320  Derya Doğan      Istanbul   Prepaid Lite  100.0
+321     +90 500 000 0321  Mustafa Tekin    Istanbul   Prepaid Lite  100.0
+323     +90 500 000 0323  Ahmet Taş        Konya      Prepaid Plus  180.0
+325     +90 500 000 0325  Merve Erdem      Istanbul   Starter       250.0
+326     +90 500 000 0326  Cem Bulut        Adana      Max           750.0
+327     +90 500 000 0327  Elif Özdemir     Konya      Plus          450.0
+328     +90 500 000 0328  Omar Mansouri    Istanbul   Plus          450.0
+330     +90 500 000 0330  Fatma Karaca     Adana      Starter       250.0
+331     +90 500 000 0331  Karim Aksoy      Ankara     Prepaid Lite  100.0
+332     +90 500 000 0332  Sara Avcı        Antalya    Starter       250.0
+333     +90 500 000 0333  Burak Yıldız     Istanbul   Plus          450.0
+334     +90 500 000 0334  Cem Mansouri     Antalya    Starter       250.0
+336     +90 500 000 0336  Tarek Kurt       Istanbul   Starter       250.0
+337     +90 500 000 0337  Cem Tekin        Istanbul   Plus          450.0
+338     +90 500 000 0338  Mustafa Acar     Istanbul   Plus          450.0
+339     +90 500 000 0339  Zeynep Bouzid    Istanbul   Starter       250.0
+340     +90 500 000 0340  Esra Doğan       Bursa      Starter       250.0
+341     +90 500 000 0341  Esra Avcı        Antalya    Prepaid Plus  180.0
+343     +90 500 000 0343  Elif Karaca      Istanbul   Starter       250.0
+344     +90 500 000 0344  Burak Aydın      Gaziantep  Plus          450.0
+345     +90 500 000 0345  Tarek Acar       Ankara     Plus          450.0
+346     +90 500 000 0346  Can Aydın        Bursa      Starter       250.0
+347     +90 500 000 0347  Murat Benali     Adana      Starter       250.0
+348     +90 500 000 0348  Leyla Erdem      NULL       Prepaid Lite  100.0
+349     +90 500 000 0349  Murat Acar       Bursa      Max           750.0
+350     +90 500 000 0350  Ayşe Benali      Istanbul   Starter       250.0
+352     +90 500 000 0352  Can Doğan        Izmir      Prepaid Lite  100.0
+353     +90 500 000 0353  Fatma Benali     Istanbul   Plus          450.0
+354     +90 500 000 0354  Omar Taş         Izmir      Plus          450.0
+355     +90 500 000 0355  Yasmin Haddad    Bursa      Max           750.0
+356     +90 500 000 0356  Derya Benali     Istanbul   Starter       250.0
+357     +90 500 000 0357  Esra Doğan       Bursa      Prepaid Lite  100.0
+358     +90 500 000 0358  Nour Kaya        Antalya    Plus          450.0
+359     +90 500 000 0359  Murat Karaca     Konya      Starter       250.0
+360     +90 500 000 0360  Yusuf Taş        Izmir      Prepaid Plus  180.0
+361     +90 500 000 0361  Ahmet Şahin      Istanbul   Max           750.0
+362     +90 500 000 0362  Ece Karaca       Bursa      Starter       250.0
+363     +90 500 000 0363  Kerem Benali     Ankara     Plus          450.0
+364     +90 500 000 0364  Nour Doğan       Istanbul   Max           750.0
+365     +90 500 000 0365  Tarek Aksoy      Istanbul   Plus          450.0
+366     +90 500 000 0366  Derya Arslan     Istanbul   Max           750.0
+367     +90 500 000 0367  Sara Yılmaz      Istanbul   Starter       250.0
+368     +90 500 000 0368  Zeynep Öztürk    Istanbul   Starter       250.0
+369     +90 500 000 0369  Derya Erdem      Istanbul   Prepaid Plus  180.0
+370     +90 500 000 0370  Zeynep Bouzid    Ankara     Starter       250.0
+371     +90 500 000 0371  Ayşe Benali      Istanbul   Starter       250.0
+373     +90 500 000 0373  Ece Demir        Gaziantep  Starter       250.0
+374     +90 500 000 0374  Sara Aksoy       Ankara     Max           750.0
+376     +90 500 000 0376  Ahmet Taş        Konya      Starter       250.0
+377     +90 500 000 0377  Selin Özdemir    Istanbul   Prepaid Plus  180.0
+378     +90 500 000 0378  Esra Taş         Antalya    Prepaid Plus  180.0
+379     +90 500 000 0379  Omar Şahin       Antalya    Prepaid Lite  100.0
+380     +90 500 000 0380  Karim Karaca     Izmir      Prepaid Plus  180.0
+381     +90 500 000 0381  Kerem Öztürk     Adana      Plus          450.0
+382     +90 500 000 0382  Yasmin Güneş     NULL       Starter       250.0
+383     +90 500 000 0383  Murat Koç        Istanbul   Prepaid Lite  100.0
+384     +90 500 000 0384  Tarek Benali     Bursa      Prepaid Plus  180.0
+386     +90 500 000 0386  Hakan Tekin      Adana      Prepaid Plus  180.0
+387     +90 500 000 0387  Amira Taş        Gaziantep  Plus          450.0
+388     +90 500 000 0388  Yusuf Özdemir    Konya      Starter       250.0
+389     +90 500 000 0389  Elif Karaca      Istanbul   Prepaid Plus  180.0
+390     +90 500 000 0390  Esra Koç         Istanbul   Starter       250.0
+391     +90 500 000 0391  Emre Kaya        Istanbul   Plus          450.0
+392     +90 500 000 0392  Leyla Demir      Ankara     Starter       250.0
+393     +90 500 000 0393  Omar Taş         Gaziantep  Prepaid Lite  100.0
+394     +90 500 000 0394  Sara Yılmaz      Istanbul   Prepaid Plus  180.0
+395     +90 500 000 0395  Leyla Taş        Bursa      Max           750.0
+396     +90 500 000 0396  Murat Avcı       Istanbul   Max           750.0
+397     +90 500 000 0397  Lina Kaya        Istanbul   Starter       250.0
+398     +90 500 000 0398  Zeynep Yıldız    Adana      Plus          450.0
+399     +90 500 000 0399  Kerem Özdemir    Istanbul   Prepaid Lite  100.0
+403     +90 500 000 0403  Esra Arslan      Istanbul   Prepaid Plus  180.0
+404     +90 500 000 0404  Burak Kaya       Izmir      Starter       250.0
+405     +90 500 000 0405  Zeynep Mansouri  Istanbul   Starter       250.0
+406     +90 500 000 0406  Murat Karaca     Konya      Plus          450.0
+408     +90 500 000 0408  Ece Işık         Konya      Max           750.0
+409     +90 500 000 0409  Tarek Kaya       Bursa      Max           750.0
+410     +90 500 000 0410  Fatma Türk       Antalya    Prepaid Lite  100.0
+411     +90 500 000 0411  Derya Çelik      Izmir      Prepaid Lite  100.0
+412     +90 500 000 0412  Cem Bulut        Ankara     Max           750.0
+413     +90 500 000 0413  Mehmet Bouzid    Ankara     Starter       250.0
+414     +90 500 000 0414  Ahmet Kaya       Bursa      Starter       250.0
+415     +90 500 000 0415  Emre Avcı        Istanbul   Starter       250.0
+416     +90 500 000 0416  Lina Polat       Antalya    Prepaid Plus  180.0
+417     +90 500 000 0417  Nour Bouzid      Konya      Starter       250.0
+418     +90 500 000 0418  Karim Demir      Istanbul   Prepaid Plus  180.0
+419     +90 500 000 0419  Nour Bouzid      Istanbul   Prepaid Lite  100.0
+420     +90 500 000 0420  Omar Güneş       Bursa      Prepaid Plus  180.0
+421     +90 500 000 0421  Hakan Yılmaz     Konya      Starter       250.0
+422     +90 500 000 0422  Esra Avcı        Istanbul   Plus          450.0
+423     +90 500 000 0423  Mustafa Avcı     Ankara     Starter       250.0
+425     +90 500 000 0425  Murat Işık       Istanbul   Prepaid Plus  180.0
+426     +90 500 000 0426  Selin Kaya       Ankara     Prepaid Plus  180.0
+427     +90 500 000 0427  Can Avcı         Gaziantep  Prepaid Plus  180.0
+428     +90 500 000 0428  Merve Mansouri   Bursa      Prepaid Plus  180.0
+430     +90 500 000 0430  Mustafa Koç      Istanbul   Plus          450.0
+432     +90 500 000 0432  Omar Çelik       Konya      Prepaid Lite  100.0
+433     +90 500 000 0433  Kerem Avcı       Ankara     Prepaid Lite  100.0
+434     +90 500 000 0434  Yasmin Demir     Ankara     Starter       250.0
+435     +90 500 000 0435  Merve Şahin      Bursa      Prepaid Plus  180.0
+436     +90 500 000 0436  Lina Mansouri    Ankara     Plus          450.0
+437     +90 500 000 0437  Derya Demir      Bursa      Prepaid Lite  100.0
+438     +90 500 000 0438  Lina Avcı        Antalya    Plus          450.0
+441     +90 500 000 0441  Elif Kaya        Konya      Prepaid Lite  100.0
+444     +90 500 000 0444  Amira Kurt       Istanbul   Starter       250.0
+445     +90 500 000 0445  Can Aydın        Bursa      Plus          450.0
+446     +90 500 000 0446  Karim Karaca     Istanbul   Prepaid Lite  100.0
+447     +90 500 000 0447  Derya Bouzid     Istanbul   Prepaid Plus  180.0
+448     +90 500 000 0448  Yusuf Arslan     Bursa      Plus          450.0
+449     +90 500 000 0449  Omar Kurt        Ankara     Max           750.0
+450     +90 500 000 0450  Kerem Polat      Ankara     Starter       250.0
+451     +90 500 000 0451  Karim Koç        NULL       Starter       250.0
+453     +90 500 000 0453  Mustafa Avcı     Gaziantep  Starter       250.0
+454     +90 500 000 0454  Amira Aydın      Istanbul   Prepaid Lite  100.0
+456     +90 500 000 0456  Mustafa Güneş    Istanbul   Prepaid Plus  180.0
+457     +90 500 000 0457  Selin Öztürk     Ankara     Starter       250.0
+458     +90 500 000 0458  Elif Çelik       Konya      Plus          450.0
+459     +90 500 000 0459  Mehmet Taş       Izmir      Starter       250.0
+460     +90 500 000 0460  Zeynep Polat     Istanbul   Starter       250.0
+461     +90 500 000 0461  Sara Koç         Istanbul   Plus          450.0
+462     +90 500 000 0462  Leyla Çelik      Ankara     Prepaid Lite  100.0
+464     +90 500 000 0464  Tarek Bulut      Bursa      Plus          450.0
+465     +90 500 000 0465  Can Yılmaz       Izmir      Prepaid Lite  100.0
+467     +90 500 000 0467  Karim Güneş      Izmir      Starter       250.0
+468     +90 500 000 0468  Mustafa Özdemir  Bursa      Max           750.0
+469     +90 500 000 0469  Ece Bouzid       Istanbul   Prepaid Lite  100.0
+470     +90 500 000 0470  Amira Taş        Ankara     Prepaid Lite  100.0
+472     +90 500 000 0472  Lina Kurt        Istanbul   Prepaid Plus  180.0
+473     +90 500 000 0473  Ece Aksoy        Antalya    Prepaid Lite  100.0
+476     +90 500 000 0476  Can Demir        Antalya    Plus          450.0
+477     +90 500 000 0477  Ece Aksoy        Antalya    Starter       250.0
+478     +90 500 000 0478  Mustafa Koç      Izmir      Starter       250.0
+479     +90 500 000 0479  Deniz Öztürk     Ankara     Starter       250.0
+480     +90 500 000 0480  Selin Demir      Antalya    Prepaid Plus  180.0
+481     +90 500 000 0481  Merve Yılmaz     Gaziantep  Plus          450.0
+483     +90 500 000 0483  Merve Doğan      Adana      Prepaid Plus  180.0
+484     +90 500 000 0484  Tarek Yıldız     Istanbul   Prepaid Plus  180.0
+486     +90 500 000 0486  Karim Çelik      Izmir      Prepaid Lite  100.0
+487     +90 500 000 0487  Burak Şahin      Izmir      Prepaid Plus  180.0
+488     +90 500 000 0488  Tarek Tekin      Istanbul   Plus          450.0
+491     +90 500 000 0491  Nour Öztürk      Gaziantep  Prepaid Plus  180.0
+492     +90 500 000 0492  Merve Öztürk     Izmir      Max           750.0
+493     +90 500 000 0493  Zeynep Kaya      Gaziantep  Plus          450.0
+494     +90 500 000 0494  Emre Karaca      Istanbul   Plus          450.0
+495     +90 500 000 0495  Selin Kurt       Izmir      Starter       250.0
+496     +90 500 000 0496  Elif Karaca      Istanbul   Starter       250.0
+497     +90 500 000 0497  Murat Haddad     Gaziantep  Starter       250.0
+498     +90 500 000 0498  Tarek Güneş      Gaziantep  Plus          450.0
+499     +90 500 000 0499  Leyla Çelik      Istanbul   Max           750.0
+500     +90 500 000 0500  Ece Erdem        Gaziantep  Plus          450.0
+501     +90 500 000 0501  Yusuf Özdemir    Ankara     Starter       250.0
+502     +90 500 000 0502  Leyla Erdem      Istanbul   Starter       250.0
+504     +90 500 000 0504  Leyla Mansouri   Istanbul   Starter       250.0
+505     +90 500 000 0505  Yasmin Yıldız    Istanbul   Plus          450.0
+506     +90 500 000 0506  Karim Karaca     Izmir      Max           750.0
+508     +90 500 000 0508  Can Özdemir      Ankara     Starter       250.0
+509     +90 500 000 0509  Elif Türk        Istanbul   Max           750.0
+510     +90 500 000 0510  Hakan Şahin      Adana      Plus          450.0
+511     +90 500 000 0511  Yusuf Karaca     Istanbul   Plus          450.0
+513     +90 500 000 0513  Hakan Öztürk     Istanbul   Starter       250.0
+514     +90 500 000 0514  Can Koç          Antalya    Starter       250.0
+515     +90 500 000 0515  Selin Demir      Antalya    Max           750.0
+516     +90 500 000 0516  Emre Şahin       Istanbul   Max           750.0
+518     +90 500 000 0518  Murat Doğan      Istanbul   Plus          450.0
+519     +90 500 000 0519  Esra Şahin       Izmir      Starter       250.0
+520     +90 500 000 0520  Omar Benali      Adana      Max           750.0
+521     +90 500 000 0521  Esra Polat       Istanbul   Starter       250.0
+522     +90 500 000 0522  Hakan Çelik      Izmir      Starter       250.0
+523     +90 500 000 0523  Ahmet Avcı       Adana      Prepaid Plus  180.0
+525     +90 500 000 0525  Selin Türk       Ankara     Prepaid Lite  100.0
+527     +90 500 000 0527  Hakan Çelik      Istanbul   Starter       250.0
+528     +90 500 000 0528  Leyla Demir      Bursa      Plus          450.0
+529     +90 500 000 0529  Emre Bulut       Konya      Max           750.0
+530     +90 500 000 0530  Amira Aksoy      Gaziantep  Plus          450.0
+532     +90 500 000 0532  Yusuf Karaca     Istanbul   Prepaid Lite  100.0
+533     +90 500 000 0533  Ayşe Demir       Antalya    Prepaid Lite  100.0
+535     +90 500 000 0535  Hakan Öztürk     Bursa      Max           750.0
+536     +90 500 000 0536  Emre Erdem       Gaziantep  Plus          450.0
+537     +90 500 000 0537  Tarek Türk       Adana      Starter       250.0
+538     +90 500 000 0538  Emre Demir       Bursa      Plus          450.0
+539     +90 500 000 0539  Nour Özdemir     Antalya    Prepaid Plus  180.0
+540     +90 500 000 0540  Amira Bulut      Istanbul   Starter       250.0
+541     +90 500 000 0541  Derya Bulut      Istanbul   Starter       250.0
+542     +90 500 000 0542  Merve Bulut      Konya      Prepaid Plus  180.0
+543     +90 500 000 0543  Kerem Yıldız     Istanbul   Prepaid Lite  100.0
+546     +90 500 000 0546  Murat Doğan      Istanbul   Starter       250.0
+548     +90 500 000 0548  Zeynep Haddad    Konya      Max           750.0
+549     +90 500 000 0549  Selin Türk       Ankara     Starter       250.0
+550     +90 500 000 0550  Cem Bulut        Adana      Prepaid Lite  100.0
+551     +90 500 000 0551  Nour Karaca      Ankara     Starter       250.0
+552     +90 500 000 0552  Nour Arslan      Istanbul   Plus          450.0
+553     +90 500 000 0553  Sara Aydın       Izmir      Prepaid Lite  100.0
+554     +90 500 000 0554  Selin Aydın      Istanbul   Prepaid Plus  180.0
+555     +90 500 000 0555  Leyla Işık       Istanbul   Plus          450.0
+556     +90 500 000 0556  Zeynep Bouzid    Ankara     Prepaid Plus  180.0
+557     +90 500 000 0557  Deniz Demir      Bursa      Plus          450.0
+558     +90 500 000 0558  Selin Acar       Ankara     Prepaid Plus  180.0
+559     +90 500 000 0559  Fatma Aksoy      Istanbul   Prepaid Lite  100.0
+560     +90 500 000 0560  Mehmet Kaya      Antalya    Prepaid Plus  180.0
+561     +90 500 000 0561  Merve Polat      Izmir      Plus          450.0
+562     +90 500 000 0562  Ahmet Haddad     Bursa      Prepaid Plus  180.0
+563     +90 500 000 0563  Fatma Arslan     Bursa      Starter       250.0
+564     +90 500 000 0564  Hakan Işık       Antalya    Prepaid Plus  180.0
+565     +90 500 000 0565  Leyla Işık       Istanbul   Plus          450.0
+566     +90 500 000 0566  Emre Doğan       Antalya    Plus          450.0
+567     +90 500 000 0567  Elif Karaca      Istanbul   Prepaid Lite  100.0
+568     +90 500 000 0568  Ece Haddad       Ankara     Plus          450.0
+569     +90 500 000 0569  Hakan Yıldız     Konya      Plus          450.0
+570     +90 500 000 0570  Murat Çelik      Konya      Prepaid Plus  180.0
+571     +90 500 000 0571  Elif Öztürk      Gaziantep  Prepaid Lite  100.0
+572     +90 500 000 0572  Karim Güneş      NULL       Prepaid Lite  100.0
+574     +90 500 000 0574  Yusuf Bouzid     Istanbul   Starter       250.0
+575     +90 500 000 0575  Selin Bouzid     Izmir      Prepaid Plus  180.0
+578     +90 500 000 0578  Hakan Kurt       Istanbul   Max           750.0
+579     +90 500 000 0579  Nour Aksoy       Izmir      Starter       250.0
+580     +90 500 000 0580  Burak Erdem      Istanbul   Prepaid Plus  180.0
+581     +90 500 000 0581  Tarek Bouzid     Istanbul   Prepaid Lite  100.0
+582     +90 500 000 0582  Mustafa Koç      Istanbul   Prepaid Plus  180.0
+583     +90 500 000 0583  Hakan Kurt       Gaziantep  Prepaid Lite  100.0
+584     +90 500 000 0584  Amira Çelik      Konya      Max           750.0
+585     +90 500 000 0585  Can Karaca       Bursa      Prepaid Plus  180.0
+586     +90 500 000 0586  Mustafa Türk     Ankara     Starter       250.0
+587     +90 500 000 0587  Esra Arslan      Istanbul   Prepaid Lite  100.0
+588     +90 500 000 0588  Deniz Taş        Adana      Prepaid Lite  100.0
+589     +90 500 000 0589  Sara Haddad      Bursa      Prepaid Plus  180.0
+590     +90 500 000 0590  Ahmet Kaya       Izmir      Plus          450.0
+591     +90 500 000 0591  Tarek Tekin      Gaziantep  Starter       250.0
+592     +90 500 000 0592  Selin Taş        Antalya    Starter       250.0
+593     +90 500 000 0593  Derya Haddad     Antalya    Plus          450.0
+594     +90 500 000 0594  Ayşe Polat       Bursa      Plus          450.0
+595     +90 500 000 0595  Omar Erdem       Istanbul   Starter       250.0
+596     +90 500 000 0596  Amira Acar       Antalya    Plus          450.0
+597     +90 500 000 0597  Can Güneş        Adana      Plus          450.0
+598     +90 500 000 0598  Yasmin Tekin     Antalya    Starter       250.0
+599     +90 500 000 0599  Can Şahin        Ankara     Starter       250.0
+600     +90 500 000 0600  Ece Güneş        Istanbul   Max           750.0
+601     +90 500 000 0601  Sara Doğan       Antalya    Prepaid Plus  180.0
+602     +90 500 000 0602  Esra Karaca      Ankara     Prepaid Lite  100.0
+603     +90 500 000 0603  Amira Haddad     Istanbul   Prepaid Lite  100.0
+604     +90 500 000 0604  Ayşe Türk        Istanbul   Prepaid Lite  100.0
+605     +90 500 000 0605  Esra Arslan      Istanbul   Max           750.0
+606     +90 500 000 0606  Leyla Karaca     Antalya    Prepaid Plus  180.0
+607     +90 500 000 0607  Tarek Aydın      Istanbul   Max           750.0
+608     +90 500 000 0608  Deniz Demir      Bursa      Prepaid Lite  100.0
+609     +90 500 000 0609  Nour Aydın       Konya      Plus          450.0
+610     +90 500 000 0610  Derya Doğan      Istanbul   Prepaid Plus  180.0
+612     +90 500 000 0612  Emre Erdem       Gaziantep  Max           750.0
+613     +90 500 000 0613  Nour Öztürk      Gaziantep  Prepaid Lite  100.0
+614     +90 500 000 0614  Hakan Çelik      Istanbul   Prepaid Lite  100.0
+615     +90 500 000 0615  Leyla Avcı       Gaziantep  Plus          450.0
+616     +90 500 000 0616  Sara Aydın       Izmir      Plus          450.0
+617     +90 500 000 0617  Lina Bulut       Ankara     Starter       250.0
+618     +90 500 000 0618  Can Taş          Izmir      Prepaid Plus  180.0
+619     +90 500 000 0619  Kerem Özdemir    Ankara     Plus          450.0
+620     +90 500 000 0620  Mehmet Tekin     Bursa      Prepaid Plus  180.0
+621     +90 500 000 0621  Omar Kurt        Konya      Plus          450.0
+622     +90 500 000 0622  Hakan Aydın      Istanbul   Starter       250.0
+623     +90 500 000 0623  Mehmet Karaca    Izmir      Max           750.0
+624     +90 500 000 0624  Leyla Işık       Ankara     Max           750.0
+625     +90 500 000 0625  Derya Doğan      Istanbul   Plus          450.0
+626     +90 500 000 0626  Elif Türk        Istanbul   Max           750.0
+627     +90 500 000 0627  Mustafa Arslan   Bursa      Plus          450.0
+628     +90 500 000 0628  Esra Koç         Adana      Prepaid Plus  180.0
+629     +90 500 000 0629  Derya Çelik      Izmir      Plus          450.0
+630     +90 500 000 0630  Lina Kaya        Antalya    Starter       250.0
+631     +90 500 000 0631  Karim Benali     Izmir      Plus          450.0
+632     +90 500 000 0632  Tarek Benali     Istanbul   Prepaid Lite  100.0
+633     +90 500 000 0633  Leyla Avcı       Gaziantep  Starter       250.0
+634     +90 500 000 0634  Lina Işık        Bursa      Prepaid Lite  100.0
+635     +90 500 000 0635  Mustafa Özdemir  Bursa      Max           750.0
+636     +90 500 000 0636  Cem Kurt         Istanbul   Prepaid Lite  100.0
+637     +90 500 000 0637  Can Aydın        Adana      Max           750.0
+638     +90 500 000 0638  Karim Arslan     Izmir      Max           750.0
+640     +90 500 000 0640  Ayşe Benali      Izmir      Prepaid Plus  180.0
+641     +90 500 000 0641  Cem Kurt         Istanbul   Prepaid Lite  100.0
+643     +90 500 000 0643  Mustafa Acar     Istanbul   Plus          450.0
+644     +90 500 000 0644  Nour Doğan       Istanbul   Plus          450.0
+645     +90 500 000 0645  Mehmet Aydın     Istanbul   Plus          450.0
+647     +90 500 000 0647  Mehmet Bouzid    Konya      Prepaid Lite  100.0
+648     +90 500 000 0648  Burak Yıldız     Istanbul   Prepaid Lite  100.0
+649     +90 500 000 0649  Zeynep Benali    Konya      Starter       250.0
+650     +90 500 000 0650  Tarek Bulut      Istanbul   Prepaid Lite  100.0
+651     +90 500 000 0651  Leyla Mansouri   Bursa      Prepaid Lite  100.0
+657     +90 500 000 0657  Cem Taş          Gaziantep  Starter       250.0
+658     +90 500 000 0658  Lina Haddad      Istanbul   Plus          450.0
+660     +90 500 000 0660  Yusuf Öztürk     Ankara     Prepaid Lite  100.0
+661     +90 500 000 0661  Cem Arslan       Ankara     Starter       250.0
+662     +90 500 000 0662  Mehmet Yılmaz    Istanbul   Prepaid Lite  100.0
+663     +90 500 000 0663  Emre Karaca      Konya      Prepaid Lite  100.0
+664     +90 500 000 0664  Selin Demir      Antalya    Starter       250.0
+666     +90 500 000 0666  Yusuf Mansouri   Ankara     Starter       250.0
+667     +90 500 000 0667  Elif Bouzid      Istanbul   Plus          450.0
+668     +90 500 000 0668  Elif Karaca      Istanbul   Starter       250.0
+670     +90 500 000 0670  Yasmin Benali    Antalya    Starter       250.0
+672     +90 500 000 0672  Nour Güneş       Ankara     Prepaid Lite  100.0
+674     +90 500 000 0674  Burak Kaya       Istanbul   Prepaid Lite  100.0
+675     +90 500 000 0675  Ayşe Benali      Istanbul   Prepaid Lite  100.0
+676     +90 500 000 0676  Zeynep Mansouri  Antalya    Plus          450.0
+677     +90 500 000 0677  Sara Taş         Ankara     Starter       250.0
+678     +90 500 000 0678  Emre Acar        Ankara     Starter       250.0
+679     +90 500 000 0679  Fatma Arslan     Bursa      Prepaid Lite  100.0
+680     +90 500 000 0680  Cem Arslan       Ankara     Plus          450.0
+681     +90 500 000 0681  Emre Acar        Adana      Starter       250.0
+682     +90 500 000 0682  Nour Tekin       Istanbul   Starter       250.0
+684     +90 500 000 0684  Yusuf Özdemir    Ankara     Max           750.0
+685     +90 500 000 0685  Nour Mansouri    Ankara     Max           750.0
+686     +90 500 000 0686  Deniz Özdemir    Konya      Plus          450.0
+687     +90 500 000 0687  Yasmin Yıldız    Ankara     Prepaid Lite  100.0
+688     +90 500 000 0688  Murat Yıldız     Istanbul   Starter       250.0
+689     +90 500 000 0689  Selin Aydın      Istanbul   Plus          450.0
+690     +90 500 000 0690  Mehmet Karaca    Istanbul   Prepaid Lite  100.0
+691     +90 500 000 0691  Yusuf Korkmaz    Adana      Prepaid Lite  100.0
+692     +90 500 000 0692  Deniz Avcı       Istanbul   Prepaid Lite  100.0
+694     +90 500 000 0694  Emre Şahin       Ankara     Starter       250.0
+695     +90 500 000 0695  Derya Öztürk     Antalya    Starter       250.0
+696     +90 500 000 0696  Murat Avcı       Gaziantep  Max           750.0
+697     +90 500 000 0697  Sara Bouzid      Istanbul   Plus          450.0
+698     +90 500 000 0698  Selin Aydın      Konya      Prepaid Plus  180.0
+699     +90 500 000 0699  Amira Haddad     Ankara     Starter       250.0
+700     +90 500 000 0700  Hakan Acar       Ankara     Prepaid Plus  180.0
+701     +90 500 000 0701  Ece Tekin        Gaziantep  Starter       250.0
+702     +90 500 000 0702  Zeynep Tekin     Ankara     Prepaid Lite  100.0
+703     +90 500 000 0703  Omar Bouzid      Gaziantep  Prepaid Plus  180.0
+704     +90 500 000 0704  Hakan Şahin      Adana      Prepaid Lite  100.0
+705     +90 500 000 0705  Ahmet Yıldız     Istanbul   Prepaid Lite  100.0
+706     +90 500 000 0706  Omar Taş         Gaziantep  Prepaid Plus  180.0
+707     +90 500 000 0707  Leyla Haddad     Bursa      Prepaid Plus  180.0
+709     +90 500 000 0709  Fatma Aydın      Konya      Prepaid Lite  100.0
+710     +90 500 000 0710  Amira Güneş      Gaziantep  Prepaid Lite  100.0
+711     +90 500 000 0711  Derya Özdemir    Istanbul   Plus          450.0
+712     +90 500 000 0712  Emre Acar        Ankara     Prepaid Lite  100.0
+713     +90 500 000 0713  Omar Karaca      NULL       Plus          450.0
+714     +90 500 000 0714  Amira Aydın      Istanbul   Prepaid Plus  180.0
+715     +90 500 000 0715  Sara Demir       Gaziantep  Prepaid Plus  180.0
+716     +90 500 000 0716  Nour Karaca      Ankara     Prepaid Lite  100.0
+717     +90 500 000 0717  Amira Aksoy      Gaziantep  Prepaid Plus  180.0
+719     +90 500 000 0719  Zeynep Benali    Konya      Plus          450.0
+720     +90 500 000 0720  Mustafa Doğan    Istanbul   Starter       250.0
+721     +90 500 000 0721  Hakan Mansouri   Konya      Prepaid Plus  180.0
+722     +90 500 000 0722  Mehmet Tekin     Bursa      Prepaid Plus  180.0
+723     +90 500 000 0723  Mustafa Bouzid   Istanbul   Starter       250.0
+724     +90 500 000 0724  Yasmin Bouzid    Ankara     Starter       250.0
+725     +90 500 000 0725  Amira Arslan     Ankara     Starter       250.0
+726     +90 500 000 0726  Ahmet Öztürk     Antalya    Prepaid Plus  180.0
+727     +90 500 000 0727  Omar Kurt        Konya      Starter       250.0
+729     +90 500 000 0729  Sara Polat       Gaziantep  Plus          450.0
+730     +90 500 000 0730  Fatma Yılmaz     Istanbul   Starter       250.0
+731     +90 500 000 0731  Amira Benali     Adana      Plus          450.0
+732     +90 500 000 0732  Lina Türk        Istanbul   Starter       250.0
+734     +90 500 000 0734  Derya Erdem      Istanbul   Starter       250.0
+735     +90 500 000 0735  Merve Özdemir    Ankara     Plus          450.0
+737     +90 500 000 0737  Zeynep Çelik     Bursa      Starter       250.0
+740     +90 500 000 0740  Sara Demir       Antalya    Starter       250.0
+741     +90 500 000 0741  Yasmin Avcı      Konya      Prepaid Lite  100.0
+742     +90 500 000 0742  Fatma Haddad     Istanbul   Prepaid Lite  100.0
+743     +90 500 000 0743  Murat Yılmaz     Adana      Prepaid Lite  100.0
+744     +90 500 000 0744  Derya Benali     Ankara     Max           750.0
+745     +90 500 000 0745  Burak Mansouri   Antalya    Prepaid Lite  100.0
+746     +90 500 000 0746  Mustafa Koç      Ankara     Prepaid Lite  100.0
+747     +90 500 000 0747  Cem Erdem        Gaziantep  Prepaid Lite  100.0
+748     +90 500 000 0748  Hakan Arslan     Bursa      Plus          450.0
+750     +90 500 000 0750  Lina Mansouri    Istanbul   Starter       250.0
+751     +90 500 000 0751  Esra Şahin       Istanbul   Prepaid Lite  100.0
+752     +90 500 000 0752  Emre Kurt        Istanbul   Prepaid Lite  100.0
+753     +90 500 000 0753  Lina Öztürk      Izmir      Starter       250.0
+754     +90 500 000 0754  Lina Türk        Istanbul   Prepaid Lite  100.0
+755     +90 500 000 0755  Karim Şahin      Istanbul   Starter       250.0
+756     +90 500 000 0756  Mustafa Yılmaz   Istanbul   Starter       250.0
+759     +90 500 000 0759  Leyla Işık       Istanbul   Starter       250.0
+760     +90 500 000 0760  Mustafa Erdem    Antalya    Prepaid Lite  100.0
+761     +90 500 000 0761  Lina Şahin       Antalya    Plus          450.0
+762     +90 500 000 0762  Murat Koç        Istanbul   Prepaid Plus  180.0
+763     +90 500 000 0763  Elif Bouzid      Istanbul   Starter       250.0
+764     +90 500 000 0764  Kerem Özdemir    Ankara     Plus          450.0
+765     +90 500 000 0765  Yusuf Benali     Antalya    Prepaid Plus  180.0
+766     +90 500 000 0766  Fatma Aydın      Konya      Plus          450.0
+767     +90 500 000 0767  Ece Karaca       Bursa      Starter       250.0
+768     +90 500 000 0768  Tarek Taş        Antalya    Prepaid Plus  180.0
+770     +90 500 000 0770  Tarek Taş        Antalya    Starter       250.0
+771     +90 500 000 0771  Elif Türk        Istanbul   Plus          450.0
+773     +90 500 000 0773  Derya Aydın      Ankara     Max           750.0
+775     +90 500 000 0775  Yasmin Öztürk    Ankara     Prepaid Plus  180.0
+776     +90 500 000 0776  Yusuf Benali     Istanbul   Prepaid Plus  180.0
+777     +90 500 000 0777  Amira Yıldız     Ankara     Prepaid Lite  100.0
+778     +90 500 000 0778  Nour Benali      Bursa      Starter       250.0
+780     +90 500 000 0780  Karim Arslan     Izmir      Starter       250.0
+783     +90 500 000 0783  Tarek Koç        Antalya    Plus          450.0
+784     +90 500 000 0784  Leyla Yılmaz     Ankara     Plus          450.0
+785     +90 500 000 0785  Ahmet Özdemir    Izmir      Starter       250.0
+786     +90 500 000 0786  Elif Güneş       Gaziantep  Starter       250.0
+787     +90 500 000 0787  Leyla Koç        Istanbul   Max           750.0
+788     +90 500 000 0788  Ayşe Karaca      Adana      Prepaid Plus  180.0
+789     +90 500 000 0789  Fatma Yılmaz     Konya      Starter       250.0
+790     +90 500 000 0790  Tarek Demir      Ankara     Plus          450.0
+793     +90 500 000 0793  Merve Tekin      Izmir      Prepaid Lite  100.0
+794     +90 500 000 0794  Ece Bouzid       Istanbul   Starter       250.0
+795     +90 500 000 0795  Ahmet Aksoy      NULL       Prepaid Lite  100.0
+796     +90 500 000 0796  Nour Bulut       Istanbul   Starter       250.0
+797     +90 500 000 0797  Karim Karaca     Istanbul   Prepaid Lite  100.0
+799     +90 500 000 0799  Can Bouzid       Gaziantep  Prepaid Lite  100.0
+800     +90 500 000 0800  Cem Özdemir      Gaziantep  Max           750.0
+801     +90 500 000 0801  Kerem Özdemir    Izmir      Max           750.0
+802     +90 500 000 0802  Leyla Polat      Bursa      Plus          450.0
+804     +90 500 000 0804  Merve Haddad     Antalya    Prepaid Lite  100.0
+805     +90 500 000 0805  Kerem Özdemir    Ankara     Starter       250.0
+806     +90 500 000 0806  Derya Koç        Istanbul   Starter       250.0
+807     +90 500 000 0807  Lina Arslan      Bursa      Prepaid Lite  100.0
+809     +90 500 000 0809  Murat Haddad     Gaziantep  Prepaid Lite  100.0
+810     +90 500 000 0810  Merve Karaca     Istanbul   Starter       250.0
+813     +90 500 000 0813  Merve Taş        Bursa      Plus          450.0
+814     +90 500 000 0814  Burak Koç        Izmir      Plus          450.0
+815     +90 500 000 0815  Nour Bouzid      Konya      Prepaid Lite  100.0
+816     +90 500 000 0816  Fatma Arslan     Istanbul   Prepaid Lite  100.0
+817     +90 500 000 0817  Fatma Avcı       Istanbul   Prepaid Lite  100.0
+818     +90 500 000 0818  Tarek Acar       Istanbul   Max           750.0
+819     +90 500 000 0819  Kerem Özdemir    Istanbul   Starter       250.0
+820     +90 500 000 0820  Cem Avcı         Istanbul   Prepaid Lite  100.0
+821     +90 500 000 0821  Ahmet Demir      Bursa      Starter       250.0
+822     +90 500 000 0822  Leyla Avcı       Gaziantep  Plus          450.0
+823     +90 500 000 0823  Ece Haddad       Istanbul   Max           750.0
+827     +90 500 000 0827  Esra Kurt        Istanbul   Prepaid Plus  180.0
+829     +90 500 000 0829  Hakan Güneş      Ankara     Prepaid Plus  180.0
+831     +90 500 000 0831  Emre Şahin       Istanbul   Starter       250.0
+832     +90 500 000 0832  Emre Bulut       Konya      Max           750.0
+834     +90 500 000 0834  Selin Aydın      Istanbul   Starter       250.0
+836     +90 500 000 0836  Ayşe Bouzid      Gaziantep  Prepaid Lite  100.0
+837     +90 500 000 0837  Murat Benali     Adana      Starter       250.0
+839     +90 500 000 0839  Lina Türk        Istanbul   Plus          450.0
+840     +90 500 000 0840  Ayşe Bouzid      Gaziantep  Prepaid Lite  100.0
+842     +90 500 000 0842  Leyla Bulut      Izmir      Starter       250.0
+843     +90 500 000 0843  Yasmin Türk      Istanbul   Plus          450.0
+844     +90 500 000 0844  Burak Tekin      Istanbul   Starter       250.0
+845     +90 500 000 0845  Ahmet Erdem      Antalya    Prepaid Lite  100.0
+846     +90 500 000 0846  Tarek Koç        Antalya    Prepaid Lite  100.0
+848     +90 500 000 0848  Zeynep Aksoy     Istanbul   Starter       250.0
+849     +90 500 000 0849  Ayşe Arslan      Istanbul   Plus          450.0
+850     +90 500 000 0850  Mustafa Polat    Konya      Plus          450.0
+851     +90 500 000 0851  Fatma Yılmaz     Ankara     Max           750.0
+852     +90 500 000 0852  Esra Şahin       Izmir      Plus          450.0
+854     +90 500 000 0854  Selin Demir      Antalya    Prepaid Lite  100.0
+855     +90 500 000 0855  Burak Yıldız     Ankara     Plus          450.0
+856     +90 500 000 0856  Kerem Kaya       Istanbul   Plus          450.0
+859     +90 500 000 0859  Leyla Demir      Ankara     Starter       250.0
+860     +90 500 000 0860  Ece Tekin        Gaziantep  Prepaid Lite  100.0
+861     +90 500 000 0861  Ece Özdemir      Izmir      Starter       250.0
+863     +90 500 000 0863  Amira Benali     Adana      Prepaid Lite  100.0
+864     +90 500 000 0864  Emre Kurt        Istanbul   Plus          450.0
+865     +90 500 000 0865  Ahmet Doğan      Antalya    Prepaid Lite  100.0
+866     +90 500 000 0866  Mustafa Çelik    Bursa      Prepaid Plus  180.0
+867     +90 500 000 0867  Fatma Şahin      Bursa      Plus          450.0
+868     +90 500 000 0868  Mustafa Haddad   Bursa      Prepaid Lite  100.0
+870     +90 500 000 0870  Kerem Özdemir    Bursa      Max           750.0
+872     +90 500 000 0872  Omar Şahin       Ankara     Starter       250.0
+873     +90 500 000 0873  Emre Türk        Ankara     Max           750.0
+874     +90 500 000 0874  Omar Avcı        Istanbul   Starter       250.0
+875     +90 500 000 0875  Omar Yıldız      Istanbul   Max           750.0
+876     +90 500 000 0876  Merve Erdem      Gaziantep  Starter       250.0
+877     +90 500 000 0877  Emre Demir       Bursa      Max           750.0
+878     +90 500 000 0878  Sara Çelik       Antalya    Plus          450.0
+880     +90 500 000 0880  Zeynep Koç       Istanbul   Prepaid Lite  100.0
+881     +90 500 000 0881  Mustafa Aksoy    Bursa      Plus          450.0
+882     +90 500 000 0882  Esra Mansouri    Bursa      Prepaid Lite  100.0
+885     +90 500 000 0885  Can Bouzid       Gaziantep  Prepaid Plus  180.0
+886     +90 500 000 0886  Emre Aksoy       Izmir      Prepaid Lite  100.0
+887     +90 500 000 0887  Fatma Karaca     Adana      Prepaid Plus  180.0
+888     +90 500 000 0888  Murat Aksoy      Istanbul   Plus          450.0
+890     +90 500 000 0890  Ayşe Benali      Izmir      Prepaid Lite  100.0
+892     +90 500 000 0892  Ahmet Aydın      Izmir      Prepaid Plus  180.0
+893     +90 500 000 0893  Yasmin Korkmaz   Istanbul   Prepaid Plus  180.0
+894     +90 500 000 0894  Fatma Kaya       Konya      Plus          450.0
+895     +90 500 000 0895  Mustafa Bouzid   Bursa      Starter       250.0
+896     +90 500 000 0896  Derya Çelik      Konya      Plus          450.0
+897     +90 500 000 0897  Kerem Bulut      Konya      Plus          450.0
+898     +90 500 000 0898  Murat Polat      Konya      Plus          450.0
+900     +90 500 000 0900  Fatma Karaca     Izmir      Plus          450.0
+901     +90 500 000 0901  Yusuf Benali     Antalya    Plus          450.0
+902     +90 500 000 0902  Fatma Şahin      Ankara     Plus          450.0
+903     +90 500 000 0903  Karim Yıldız     Ankara     Starter       250.0
+904     +90 500 000 0904  Leyla Haddad     Adana      Plus          450.0
+906     +90 500 000 0906  Burak Kaya       Izmir      Prepaid Lite  100.0
+907     +90 500 000 0907  Ayşe Korkmaz     Gaziantep  Plus          450.0
+908     +90 500 000 0908  Ece Işık         Konya      Starter       250.0
+909     +90 500 000 0909  Ece Işık         Gaziantep  Starter       250.0
+910     +90 500 000 0910  Karim Işık       Istanbul   Starter       250.0
+911     +90 500 000 0911  Emre Türk        Ankara     Plus          450.0
+912     +90 500 000 0912  Derya Koç        Istanbul   Starter       250.0
+913     +90 500 000 0913  Emre Arslan      Istanbul   Plus          450.0
+914     +90 500 000 0914  Yusuf Mansouri   Ankara     Prepaid Plus  180.0
+915     +90 500 000 0915  Leyla Bulut      Antalya    Plus          450.0
+916     +90 500 000 0916  Murat Yılmaz     Antalya    Starter       250.0
+917     +90 500 000 0917  Ece Işık         Istanbul   Starter       250.0
+918     +90 500 000 0918  Nour Özdemir     Istanbul   Max           750.0
+919     +90 500 000 0919  Emre Bouzid      Adana      Starter       250.0
+921     +90 500 000 0921  Emre Doğan       Antalya    Starter       250.0
+923     +90 500 000 0923  Lina Mansouri    Ankara     Max           750.0
+924     +90 500 000 0924  Fatma Bulut      Adana      Max           750.0
+925     +90 500 000 0925  Derya Öztürk     Antalya    Plus          450.0
+926     +90 500 000 0926  Deniz Tekin      Izmir      Prepaid Lite  100.0
+927     +90 500 000 0927  Burak Doğan      Izmir      Prepaid Plus  180.0
+928     +90 500 000 0928  Tarek Tekin      Ankara     Plus          450.0
+931     +90 500 000 0931  Mustafa Güneş    Antalya    Prepaid Lite  100.0
+932     +90 500 000 0932  Fatma Benali     Istanbul   Prepaid Plus  180.0
+933     +90 500 000 0933  Burak Yıldız     Gaziantep  Max           750.0
+935     +90 500 000 0935  Burak Yılmaz     Izmir      Max           750.0
+936     +90 500 000 0936  Emre Özdemir     Ankara     Starter       250.0
+937     +90 500 000 0937  Zeynep Aydın     Istanbul   Prepaid Plus  180.0
+938     +90 500 000 0938  Leyla Aksoy      Adana      Max           750.0
+939     +90 500 000 0939  Elif Benali      Istanbul   Prepaid Plus  180.0
+940     +90 500 000 0940  Fatma Avcı       Istanbul   Starter       250.0
+941     +90 500 000 0941  Mustafa Polat    Istanbul   Plus          450.0
+942     +90 500 000 0942  Hakan Acar       Izmir      Starter       250.0
+943     +90 500 000 0943  Amira Arslan     Ankara     Prepaid Lite  100.0
+944     +90 500 000 0944  Amira Bulut      Istanbul   Prepaid Lite  100.0
+945     +90 500 000 0945  Mehmet Özdemir   Izmir      Prepaid Plus  180.0
+946     +90 500 000 0946  Omar Doğan       NULL       Prepaid Lite  100.0
+947     +90 500 000 0947  Kerem Arslan     Antalya    Prepaid Lite  100.0
+948     +90 500 000 0948  Emre Kurt        Istanbul   Starter       250.0
+949     +90 500 000 0949  Ahmet Polat      Izmir      Plus          450.0
+950     +90 500 000 0950  Ece Özdemir      Izmir      Starter       250.0
+951     +90 500 000 0951  Sara Yılmaz      Istanbul   Prepaid Lite  100.0
+952     +90 500 000 0952  Ayşe Yılmaz      Ankara     Prepaid Lite  100.0
+954     +90 500 000 0954  Derya Demir      Gaziantep  Prepaid Plus  180.0
+955     +90 500 000 0955  Ahmet Yıldız     NULL       Plus          450.0
+956     +90 500 000 0956  Fatma Türk       Istanbul   Plus          450.0
+957     +90 500 000 0957  Selin Acar       Istanbul   Starter       250.0
+959     +90 500 000 0959  Yasmin Korkmaz   Bursa      Plus          450.0
+960     +90 500 000 0960  Yusuf Güneş      Istanbul   Prepaid Lite  100.0
+961     +90 500 000 0961  Lina Bulut       Konya      Plus          450.0
+962     +90 500 000 0962  Nour Haddad      Konya      Max           750.0
+963     +90 500 000 0963  Karim Aydın      Gaziantep  Starter       250.0
+964     +90 500 000 0964  Emre Kurt        Ankara     Max           750.0
+966     +90 500 000 0966  Emre Korkmaz     Izmir      Plus          450.0
+967     +90 500 000 0967  Esra Haddad      Adana      Plus          450.0
+968     +90 500 000 0968  Derya Demir      Ankara     Prepaid Lite  100.0
+969     +90 500 000 0969  Yusuf Güneş      Istanbul   Starter       250.0
+970     +90 500 000 0970  Kerem Demir      Adana      Plus          450.0
+971     +90 500 000 0971  Lina Türk        Istanbul   Starter       250.0
+972     +90 500 000 0972  Yusuf Doğan      Antalya    Plus          450.0
+973     +90 500 000 0973  Burak Aydın      Istanbul   Prepaid Plus  180.0
+974     +90 500 000 0974  Sara Kaya        Bursa      Prepaid Lite  100.0
+975     +90 500 000 0975  Mustafa Demir    Istanbul   Max           750.0
+976     +90 500 000 0976  Murat Doğan      Istanbul   Starter       250.0
+977     +90 500 000 0977  Merve Şahin      Gaziantep  Starter       250.0
+978     +90 500 000 0978  Yasmin Özdemir   Izmir      Prepaid Plus  180.0
+979     +90 500 000 0979  Sara Tekin       Istanbul   Prepaid Lite  100.0
+980     +90 500 000 0980  Selin Aydın      Konya      Plus          450.0
+981     +90 500 000 0981  Derya Arslan     Istanbul   Prepaid Lite  100.0
+983     +90 500 000 0983  Omar Mansouri    Istanbul   Max           750.0
+985     +90 500 000 0985  Yasmin Öztürk    Gaziantep  Prepaid Plus  180.0
+986     +90 500 000 0986  Lina Kaya        Ankara     Prepaid Lite  100.0
+987     +90 500 000 0987  Nour Aydın       Konya      Plus          450.0
+989     +90 500 000 0989  Emre Acar        Ankara     Plus          450.0
+990     +90 500 000 0990  Emre Bulut       Bursa      Prepaid Plus  180.0
+991     +90 500 000 0991  Cem Erdem        Gaziantep  Prepaid Plus  180.0
+992     +90 500 000 0992  Elif Güneş       Gaziantep  Plus          450.0
+993     +90 500 000 0993  Ahmet Acar       Adana      Prepaid Plus  180.0
+994     +90 500 000 0994  Nour Doğan       Istanbul   Starter       250.0
+996     +90 500 000 0996  Emre Doğan       Ankara     Plus          450.0
+997     +90 500 000 0997  Nour Bouzid      Istanbul   Prepaid Lite  100.0
+998     +90 500 000 0998  Esra Arslan      Istanbul   Prepaid Lite  100.0
+1000    +90 500 000 1000  Leyla Haddad     Ankara     Prepaid Lite  100.0
+1001    +90 500 000 1001  Mehmet Yılmaz    Adana      Starter       250.0
+1002    +90 500 000 1002  Mehmet Yılmaz    Adana      Prepaid Plus  180.0
+1003    +90 500 000 1003  Mustafa Güneş    Antalya    Prepaid Lite  100.0
+1004    +90 500 000 1004  Zeynep Benali    Konya      Plus          450.0
+1005    +90 500 000 1005  Sara Erdem       Konya      Prepaid Lite  100.0
+1006    +90 500 000 1006  Amira Güneş      Adana      Starter       250.0
+1007    +90 500 000 1007  Ece Koç          Adana      Plus          450.0
+1008    +90 500 000 1008  Ece Korkmaz      Ankara     Prepaid Lite  100.0
+1009    +90 500 000 1009  Can Aksoy        Gaziantep  Prepaid Plus  180.0
+1010    +90 500 000 1010  Ahmet Aydın      Istanbul   Starter       250.0
+1011    +90 500 000 1011  Tarek Aksoy      Istanbul   Plus          450.0
+1012    +90 500 000 1012  Kerem Tekin      Gaziantep  Plus          450.0
+1013    +90 500 000 1013  Esra Avcı        Istanbul   Prepaid Plus  180.0
+1014    +90 500 000 1014  Yusuf Bouzid     Istanbul   Prepaid Lite  100.0
+1015    +90 500 000 1015  Sara Özdemir     Istanbul   Max           750.0
+1016    +90 500 000 1016  Murat Haddad     Adana      Starter       250.0
+1017    +90 500 000 1017  Can Aydın        Adana      Plus          450.0
+1018    +90 500 000 1018  Yusuf Doğan      Antalya    Prepaid Lite  100.0
+1019    +90 500 000 1019  Fatma Bulut      Konya      Max           750.0
+1020    +90 500 000 1020  Sara Haddad      Bursa      Prepaid Plus  180.0
+1021    +90 500 000 1021  Sara Bulut       Istanbul   Starter       250.0
+1022    +90 500 000 1022  Can Şahin        Ankara     Starter       250.0
+1023    +90 500 000 1023  Tarek Taş        Antalya    Prepaid Plus  180.0
+1024    +90 500 000 1024  Nour Kaya        Antalya    Max           750.0
+1025    +90 500 000 1025  Tarek Korkmaz    Istanbul   Max           750.0
+1026    +90 500 000 1026  Ece Korkmaz      Ankara     Starter       250.0
+1027    +90 500 000 1027  Nour Benali      Izmir      Starter       250.0
+1029    +90 500 000 1029  Nour Bouzid      Istanbul   Prepaid Lite  100.0
+1031    +90 500 000 1031  Ayşe Işık        Istanbul   Prepaid Lite  100.0
+1032    +90 500 000 1032  Nour Bulut       Istanbul   Starter       250.0
+1033    +90 500 000 1033  Ahmet Aydın      Izmir      Starter       250.0
+1034    +90 500 000 1034  Nour Işık        Istanbul   Max           750.0
+1036    +90 500 000 1036  Deniz Güneş      Izmir      Starter       250.0
+1037    +90 500 000 1037  Karim Yıldız     Istanbul   Starter       250.0
+1040    +90 500 000 1040  Nour Şahin       Ankara     Prepaid Plus  180.0
+1041    +90 500 000 1041  Mehmet Tekin     Bursa      Prepaid Lite  100.0
+1043    +90 500 000 1043  Amira Avcı       Konya      Prepaid Plus  180.0
+1045    +90 500 000 1045  Karim Yıldız     Istanbul   Prepaid Plus  180.0
+1047    +90 500 000 1047  Deniz Taş        Adana      Max           750.0
+1048    +90 500 000 1048  Hakan Şahin      Konya      Starter       250.0
+1050    +90 500 000 1050  Tarek Bulut      Istanbul   Prepaid Lite  100.0
+1051    +90 500 000 1051  Mehmet Özdemir   Izmir      Starter       250.0
+1053    +90 500 000 1053  Leyla Öztürk     Antalya    Starter       250.0
+1054    +90 500 000 1054  Yasmin Aksoy     Istanbul   Starter       250.0
+1055    +90 500 000 1055  Can Aksoy        Istanbul   Starter       250.0
+1056    +90 500 000 1056  Hakan Öztürk     Istanbul   Starter       250.0
+1057    +90 500 000 1057  Elif Türk        Bursa      Plus          450.0
+1059    +90 500 000 1059  Merve Benali     Istanbul   Prepaid Plus  180.0
+1060    +90 500 000 1060  Hakan Haddad     Istanbul   Plus          450.0
+1062    +90 500 000 1062  Ece Koç          Adana      Prepaid Plus  180.0
+1063    +90 500 000 1063  Sara Koç         Istanbul   Plus          450.0
+1064    +90 500 000 1064  Tarek Mansouri   Bursa      Prepaid Plus  180.0
+1066    +90 500 000 1066  Zeynep Koç       Istanbul   Plus          450.0
+1067    +90 500 000 1067  Cem Koç          Istanbul   Plus          450.0
+1068    +90 500 000 1068  Emre Acar        Ankara     Max           750.0
+1069    +90 500 000 1069  Emre Güneş       Istanbul   Prepaid Lite  100.0
+1070    +90 500 000 1070  Leyla Yılmaz     Izmir      Prepaid Plus  180.0
+1071    +90 500 000 1071  Can Taş          Izmir      Starter       250.0
+1072    +90 500 000 1072  Leyla Haddad     Ankara     Prepaid Lite  100.0
+1073    +90 500 000 1073  Ayşe Çelik       Konya      Starter       250.0
+1075    +90 500 000 1075  Ece Kurt         Izmir      Starter       250.0
+1076    +90 500 000 1076  Esra Benali      Gaziantep  Max           750.0
+1077    +90 500 000 1077  Elif Mansouri    Bursa      Prepaid Lite  100.0
+1078    +90 500 000 1078  Esra Koç         Adana      Starter       250.0
+1079    +90 500 000 1079  Karim Arslan     Antalya    Plus          450.0
+1080    +90 500 000 1080  Hakan Demir      Adana      Prepaid Plus  180.0
+1081    +90 500 000 1081  Amira Güneş      Gaziantep  Prepaid Plus  180.0
+1082    +90 500 000 1082  Merve Erdem      Istanbul   Plus          450.0
+1083    +90 500 000 1083  Leyla Haddad     Adana      Starter       250.0
+1084    +90 500 000 1084  Selin Kurt       Izmir      Starter       250.0
+1086    +90 500 000 1086  Omar Aksoy       Izmir      Prepaid Lite  100.0
+1087    +90 500 000 1087  Hakan Yıldız     Konya      Starter       250.0
+1089    +90 500 000 1089  Burak Taş        Ankara     Starter       250.0
+1090    +90 500 000 1090  Tarek Güneş      Gaziantep  Prepaid Plus  180.0
+1092    +90 500 000 1092  Omar Erdem       Adana      Max           750.0
+1093    +90 500 000 1093  Nour Karaca      Ankara     Starter       250.0
+1094    +90 500 000 1094  Mehmet Yılmaz    Adana      Starter       250.0
+1095    +90 500 000 1095  Ece Haddad       Ankara     Prepaid Lite  100.0
+1096    +90 500 000 1096  Sara Tekin       Konya      Prepaid Plus  180.0
+1097    +90 500 000 1097  Murat Karaca     Izmir      Prepaid Plus  180.0
+1098    +90 500 000 1098  Murat Güneş      Antalya    Prepaid Lite  100.0
+1099    +90 500 000 1099  Omar Işık        Istanbul   Starter       250.0
+1100    +90 500 000 1100  Amira Bouzid     Ankara     Prepaid Lite  100.0
+1101    +90 500 000 1101  Merve Yıldız     Izmir      Starter       250.0
+1102    +90 500 000 1102  Murat Yıldız     Istanbul   Plus          450.0
+1103    +90 500 000 1103  Sara Bulut       Istanbul   Prepaid Plus  180.0
+1105    +90 500 000 1105  Elif Benali      Istanbul   Plus          450.0
+1106    +90 500 000 1106  Leyla Karaca     Antalya    Prepaid Lite  100.0
+1107    +90 500 000 1107  Yasmin Güneş     NULL       Prepaid Lite  100.0
+1109    +90 500 000 1109  Cem Avcı         Istanbul   Prepaid Lite  100.0
+1110    +90 500 000 1110  Tarek Aksoy      Istanbul   Plus          450.0
+1111    +90 500 000 1111  Kerem Kaya       Istanbul   Max           750.0
+1112    +90 500 000 1112  Deniz Özdemir    Adana      Prepaid Lite  100.0
+1113    +90 500 000 1113  Yusuf Karaca     Istanbul   Prepaid Lite  100.0
+1114    +90 500 000 1114  Mehmet Yılmaz    Adana      Starter       250.0
+1115    +90 500 000 1115  Yasmin Yılmaz    Konya      Plus          450.0
+1116    +90 500 000 1116  Derya Benali     Istanbul   Prepaid Lite  100.0
+1117    +90 500 000 1117  Selin Benali     Ankara     Prepaid Lite  100.0
+1118    +90 500 000 1118  Leyla Mansouri   Bursa      Starter       250.0
+1120    +90 500 000 1120  Ahmet Korkmaz    Istanbul   Plus          450.0
+1121    +90 500 000 1121  Tarek Demir      Ankara     Prepaid Lite  100.0
+1122    +90 500 000 1122  Kerem Kaya       NULL       Prepaid Plus  180.0
+1123    +90 500 000 1123  Ayşe Aksoy       Ankara     Plus          450.0
+1124    +90 500 000 1124  Amira Haddad     Istanbul   Starter       250.0
+1125    +90 500 000 1125  Yusuf Avcı       Bursa      Prepaid Plus  180.0
+1126    +90 500 000 1126  Hakan Çelik      Istanbul   Starter       250.0
+1128    +90 500 000 1128  Ece Güneş        Istanbul   Prepaid Plus  180.0
+1129    +90 500 000 1129  Leyla Koç        Istanbul   Plus          450.0
+1131    +90 500 000 1131  Merve Yılmaz     Gaziantep  Starter       250.0
+1132    +90 500 000 1132  Ece Avcı         Istanbul   Plus          450.0
+1133    +90 500 000 1133  Lina Şahin       Antalya    Prepaid Lite  100.0
+1134    +90 500 000 1134  Esra Arslan      Istanbul   Starter       250.0
+1135    +90 500 000 1135  Tarek Bulut      Bursa      Plus          450.0
+1136    +90 500 000 1136  Mehmet Erdem     Konya      Starter       250.0
+1138    +90 500 000 1138  Hakan Çelik      Istanbul   Plus          450.0
+1139    +90 500 000 1139  Ece Mansouri     Istanbul   Prepaid Lite  100.0
+1140    +90 500 000 1140  Deniz Özdemir    Konya      Prepaid Lite  100.0
+1142    +90 500 000 1142  Hakan Doğan      Konya      Starter       250.0
+1143    +90 500 000 1143  Sara Haddad      Istanbul   Starter       250.0
+1144    +90 500 000 1144  Mustafa Doğan    Istanbul   Plus          450.0
+1145    +90 500 000 1145  Esra Güneş       Ankara     Prepaid Lite  100.0
+1147    +90 500 000 1147  Derya Haddad     Antalya    Plus          450.0
+1149    +90 500 000 1149  Derya Bouzid     Bursa      Prepaid Plus  180.0
+1150    +90 500 000 1150  Zeynep Avcı      Istanbul   Plus          450.0
+1151    +90 500 000 1151  Derya Demir      Istanbul   Starter       250.0
+1152    +90 500 000 1152  Leyla Erdem      Istanbul   Starter       250.0
+1153    +90 500 000 1153  Leyla Demir      Bursa      Prepaid Plus  180.0
+1156    +90 500 000 1156  Elif Mansouri    Bursa      Prepaid Plus  180.0
+1157    +90 500 000 1157  Emre Çelik       Antalya    Max           750.0
+1159    +90 500 000 1159  Elif Yılmaz      Istanbul   Prepaid Lite  100.0
+1162    +90 500 000 1162  Omar Polat       Ankara     Max           750.0
+1163    +90 500 000 1163  Murat Demir      Gaziantep  Starter       250.0
+1164    +90 500 000 1164  Ahmet Kaya       Izmir      Max           750.0
+1165    +90 500 000 1165  Ayşe Haddad      Istanbul   Prepaid Lite  100.0
+1166    +90 500 000 1166  Mustafa Koç      Izmir      Prepaid Lite  100.0
+1167    +90 500 000 1167  Deniz Bouzid     Istanbul   Prepaid Lite  100.0
+1169    +90 500 000 1169  Kerem Yıldız     Bursa      Starter       250.0
+1170    +90 500 000 1170  Emre Çelik       Antalya    Max           750.0
+1171    +90 500 000 1171  Hakan Haddad     Istanbul   Prepaid Lite  100.0
+1174    +90 500 000 1174  Sara Yılmaz      Gaziantep  Prepaid Lite  100.0
+1175    +90 500 000 1175  Burak Aydın      Gaziantep  Plus          450.0
+1176    +90 500 000 1176  Can Aksoy        Istanbul   Starter       250.0
+1177    +90 500 000 1177  Amira Işık       Ankara     Prepaid Plus  180.0
+1178    +90 500 000 1178  Sara Özdemir     Istanbul   Prepaid Lite  100.0
+1179    +90 500 000 1179  Hakan Güneş      Konya      Starter       250.0
+1180    +90 500 000 1180  Amira Koç        Istanbul   Max           750.0
+1181    +90 500 000 1181  Derya Türk       Antalya    Prepaid Plus  180.0
+1183    +90 500 000 1183  Hakan Yıldız     Bursa      Prepaid Lite  100.0
+1184    +90 500 000 1184  Hakan Öztürk     Istanbul   Prepaid Lite  100.0
+1185    +90 500 000 1185  Yasmin Avcı      Antalya    Max           750.0
+1186    +90 500 000 1186  Can Avcı         Gaziantep  Plus          450.0
+1188    +90 500 000 1188  Karim Yılmaz     Istanbul   Plus          450.0
+1190    +90 500 000 1190  Hakan Güneş      Ankara     Prepaid Plus  180.0
+1191    +90 500 000 1191  Tarek Korkmaz    Istanbul   Prepaid Lite  100.0
+1192    +90 500 000 1192  Tarek Benali     Bursa      Starter       250.0
+1193    +90 500 000 1193  Esra Yılmaz      Istanbul   Plus          450.0
+1194    +90 500 000 1194  Omar Korkmaz     Antalya    Starter       250.0
+1195    +90 500 000 1195  Tarek Korkmaz    Istanbul   Starter       250.0
+1196    +90 500 000 1196  Sara Doğan       Antalya    Plus          450.0
+1197    +90 500 000 1197  Elif Özdemir     Konya      Prepaid Plus  180.0
+1198    +90 500 000 1198  Nour Çelik       Ankara     Plus          450.0
+1199    +90 500 000 1199  Yasmin Polat     NULL       Prepaid Plus  180.0
+1202    +90 500 000 1202  Kerem Yıldız     Istanbul   Starter       250.0
+1204    +90 500 000 1204  Nour Aydın       Istanbul   Prepaid Plus  180.0
+1205    +90 500 000 1205  Esra Şahin       Istanbul   Prepaid Lite  100.0
+1206    +90 500 000 1206  Esra Kurt        Gaziantep  Prepaid Plus  180.0
+1207    +90 500 000 1207  Karim Benali     Adana      Plus          450.0
+1209    +90 500 000 1209  Selin Tekin      Izmir      Prepaid Plus  180.0
+1210    +90 500 000 1210  Murat Doğan      Istanbul   Starter       250.0
+1211    +90 500 000 1211  Derya Demir      Ankara     Starter       250.0
+1212    +90 500 000 1212  Selin Demir      Antalya    Max           750.0
+1213    +90 500 000 1213  Zeynep Koç       Istanbul   Starter       250.0
+1214    +90 500 000 1214  Deniz Demir      Bursa      Starter       250.0
+1215    +90 500 000 1215  Esra Kaya        Bursa      Max           750.0
+1218    +90 500 000 1218  Can Işık         Ankara     Prepaid Plus  180.0
+1220    +90 500 000 1220  Esra Özdemir     Gaziantep  Max           750.0
+1222    +90 500 000 1222  Murat Acar       Ankara     Starter       250.0
+1223    +90 500 000 1223  Yusuf Benali     Ankara     Plus          450.0
+1227    +90 500 000 1227  Lina Haddad      Istanbul   Starter       250.0
+1228    +90 500 000 1228  Nour Mansouri    Istanbul   Max           750.0
+1229    +90 500 000 1229  Ahmet Doğan      Antalya    Starter       250.0
+1230    +90 500 000 1230  Omar Yıldız      Istanbul   Max           750.0
+1231    +90 500 000 1231  Tarek Aydın      Istanbul   Plus          450.0
+1232    +90 500 000 1232  Karim Benali     Izmir      Prepaid Plus  180.0
+1234    +90 500 000 1234  Lina Kurt        Istanbul   Prepaid Lite  100.0
+1235    +90 500 000 1235  Zeynep Acar      Istanbul   Prepaid Lite  100.0
+1236    +90 500 000 1236  Zeynep Polat     Istanbul   Max           750.0
+1237    +90 500 000 1237  Yusuf Arslan     Bursa      Prepaid Plus  180.0
+1238    +90 500 000 1238  Yasmin Işık      Izmir      Starter       250.0
+1239    +90 500 000 1239  Leyla Yılmaz     Izmir      Plus          450.0
+1240    +90 500 000 1240  Sara Kurt        Gaziantep  Starter       250.0
+1242    +90 500 000 1242  Ayşe Türk        Ankara     Prepaid Lite  100.0
+1243    +90 500 000 1243  Ayşe Işık        Adana      Plus          450.0
+1244    +90 500 000 1244  Karim Arslan     NULL       Prepaid Plus  180.0
+1246    +90 500 000 1246  Merve Avcı       Istanbul   Max           750.0
+1247    +90 500 000 1247  Leyla Bulut      Gaziantep  Plus          450.0
+1249    +90 500 000 1249  Sara Koç         Istanbul   Plus          450.0
+1250    +90 500 000 1250  Cem Erdem        Ankara     Plus          450.0
+1251    +90 500 000 1251  Fatma Korkmaz    Istanbul   Starter       250.0
+1252    +90 500 000 1252  Ece Kaya         Istanbul   Prepaid Plus  180.0
+1253    +90 500 000 1253  Sara Acar        Istanbul   Plus          450.0
+1254    +90 500 000 1254  Ahmet Aydın      Istanbul   Starter       250.0
+1255    +90 500 000 1255  Murat Avcı       Istanbul   Max           750.0
+1256    +90 500 000 1256  Nour Aydın       Konya      Prepaid Lite  100.0
+1257    +90 500 000 1257  Tarek Bulut      Ankara     Plus          450.0
+1260    +90 500 000 1260  Nour Mansouri    Istanbul   Max           750.0
+1261    +90 500 000 1261  Deniz Tekin      Istanbul   Prepaid Plus  180.0
+1263    +90 500 000 1263  Merve Tekin      Istanbul   Plus          450.0
+1264    +90 500 000 1264  Ayşe Benali      Izmir      Starter       250.0
+1265    +90 500 000 1265  Emre Özdemir     Ankara     Starter       250.0
+1266    +90 500 000 1266  Kerem Demir      Istanbul   Prepaid Lite  100.0
+1268    +90 500 000 1268  Can Avcı         Gaziantep  Prepaid Lite  100.0
+1270    +90 500 000 1270  Omar Çelik       Izmir      Max           750.0
+1272    +90 500 000 1272  Emre Bouzid      Adana      Prepaid Lite  100.0
+1273    +90 500 000 1273  Murat Yıldız     Istanbul   Prepaid Lite  100.0
+1275    +90 500 000 1275  Sara Karaca      Gaziantep  Starter       250.0
+1277    +90 500 000 1277  Ahmet Erdem      Antalya    Prepaid Lite  100.0
+1279    +90 500 000 1279  Ece Tekin        Istanbul   Prepaid Lite  100.0
+1280    +90 500 000 1280  Esra Bouzid      Istanbul   Plus          450.0
+1281    +90 500 000 1281  Tarek Korkmaz    Istanbul   Plus          450.0
+1283    +90 500 000 1283  Can Taş          Izmir      Prepaid Lite  100.0
+1284    +90 500 000 1284  Zeynep Koç       Antalya    Max           750.0
+1285    +90 500 000 1285  Ahmet Bulut      Ankara     Starter       250.0
+1286    +90 500 000 1286  Ayşe Türk        Ankara     Prepaid Plus  180.0
+1287    +90 500 000 1287  Ahmet Özdemir    Izmir      Plus          450.0
+1289    +90 500 000 1289  Karim Koç        NULL       Prepaid Plus  180.0
+1290    +90 500 000 1290  Omar Demir       Izmir      Plus          450.0
+1291    +90 500 000 1291  Fatma Benali     Istanbul   Prepaid Lite  100.0
+1292    +90 500 000 1292  Hakan Haddad     Istanbul   Prepaid Plus  180.0
+1293    +90 500 000 1293  Mehmet Acar      Ankara     Starter       250.0
+1294    +90 500 000 1294  Yasmin Avcı      Ankara     Plus          450.0
+1295    +90 500 000 1295  Esra Tekin       Gaziantep  Starter       250.0
+1296    +90 500 000 1296  Selin Çelik      Istanbul   Prepaid Plus  180.0
+1297    +90 500 000 1297  Sara Işık        Istanbul   Starter       250.0
+1298    +90 500 000 1298  Yusuf Karaca     Konya      Prepaid Plus  180.0
+1299    +90 500 000 1299  Emre Bouzid      Adana      Prepaid Plus  180.0
+1300    +90 500 000 1300  Mustafa Erdem    Gaziantep  Prepaid Plus  180.0
+1301    +90 500 000 1301  Kerem Arslan     Antalya    Prepaid Lite  100.0
+1302    +90 500 000 1302  Yasmin Benali    Antalya    Prepaid Lite  100.0
+1303    +90 500 000 1303  Elif Güneş       Gaziantep  Prepaid Lite  100.0
+1304    +90 500 000 1304  Burak Bulut      Adana      Starter       250.0
+1305    +90 500 000 1305  Selin Türk       Bursa      Plus          450.0
+1307    +90 500 000 1307  Zeynep Bouzid    Ankara     Max           750.0
+1308    +90 500 000 1308  Yusuf Aydın      Adana      Prepaid Lite  100.0
+1309    +90 500 000 1309  Elif Kaya        Konya      Plus          450.0
+1310    +90 500 000 1310  Emre Acar        Ankara     Plus          450.0
+1313    +90 500 000 1313  Kerem Acar       Istanbul   Prepaid Plus  180.0
+1314    +90 500 000 1314  Tarek Kurt       Istanbul   Prepaid Lite  100.0
+1315    +90 500 000 1315  Yasmin Şahin     Istanbul   Prepaid Lite  100.0
+1316    +90 500 000 1316  Ahmet Aksoy      NULL       Prepaid Lite  100.0
+1317    +90 500 000 1317  Elif Türk        Istanbul   Max           750.0
+1319    +90 500 000 1319  Ayşe Türk        Konya      Starter       250.0
+1320    +90 500 000 1320  Nour Özdemir     Istanbul   Max           750.0
+1321    +90 500 000 1321  Sara Tekin       Istanbul   Prepaid Lite  100.0
+1323    +90 500 000 1323  Ece Mansouri     Istanbul   Max           750.0
+1324    +90 500 000 1324  Lina Doğan       Antalya    Prepaid Plus  180.0
+1325    +90 500 000 1325  Karim Koç        NULL       Prepaid Lite  100.0
+1326    +90 500 000 1326  Omar Avcı        Istanbul   Prepaid Lite  100.0
+1327    +90 500 000 1327  Sara Kaya        Bursa      Prepaid Lite  100.0
+1328    +90 500 000 1328  Emre Bouzid      Izmir      Max           750.0
+1329    +90 500 000 1329  Kerem Öztürk     Adana      Plus          450.0
+1330    +90 500 000 1330  Amira Bulut      Istanbul   Starter       250.0
+1331    +90 500 000 1331  Cem Kurt         Istanbul   Prepaid Plus  180.0
+1332    +90 500 000 1332  Zeynep Yıldız    Adana      Prepaid Lite  100.0
+1333    +90 500 000 1333  Ahmet Koç        Istanbul   Prepaid Lite  100.0
+1334    +90 500 000 1334  Burak Arslan     Bursa      Prepaid Plus  180.0
+1335    +90 500 000 1335  Sara Yılmaz      Gaziantep  Prepaid Lite  100.0
+1337    +90 500 000 1337  Merve Özdemir    Ankara     Plus          450.0
+1338    +90 500 000 1338  Esra Karaca      Izmir      Starter       250.0
+1339    +90 500 000 1339  Mustafa Benali   Izmir      Max           750.0
+1340    +90 500 000 1340  Fatma Bulut      Konya      Plus          450.0
+1341    +90 500 000 1341  Murat Işık       Istanbul   Starter       250.0
+1343    +90 500 000 1343  Karim Yıldız     Ankara     Starter       250.0
+1344    +90 500 000 1344  Ahmet Haddad     Istanbul   Plus          450.0
+1345    +90 500 000 1345  Elif Mansouri    Bursa      Prepaid Plus  180.0
+1346    +90 500 000 1346  Omar Erdem       Adana      Starter       250.0
+1347    +90 500 000 1347  Lina Öztürk      Istanbul   Plus          450.0
+1348    +90 500 000 1348  Omar Bouzid      Gaziantep  Prepaid Plus  180.0
+1349    +90 500 000 1349  Zeynep Koç       Istanbul   Starter       250.0
+1350    +90 500 000 1350  Kerem Bouzid     Antalya    Prepaid Lite  100.0
+1351    +90 500 000 1351  Can Demir        Antalya    Prepaid Lite  100.0
+1352    +90 500 000 1352  Omar Bouzid      Gaziantep  Prepaid Lite  100.0
+1353    +90 500 000 1353  Esra Arslan      Istanbul   Prepaid Plus  180.0
+1354    +90 500 000 1354  Cem Polat        Istanbul   Starter       250.0
+1355    +90 500 000 1355  Merve Bouzid     Ankara     Prepaid Lite  100.0
+1356    +90 500 000 1356  Can Yıldız       Izmir      Prepaid Plus  180.0
+1357    +90 500 000 1357  Can Mansouri     Izmir      Plus          450.0
+1358    +90 500 000 1358  Fatma Demir      Istanbul   Starter       250.0
+1359    +90 500 000 1359  Merve Taş        Konya      Prepaid Lite  100.0
+1360    +90 500 000 1360  Mehmet Kaya      Antalya    Starter       250.0
+1361    +90 500 000 1361  Leyla Öztürk     Antalya    Plus          450.0
+1363    +90 500 000 1363  Lina Kaya        Istanbul   Starter       250.0
+1364    +90 500 000 1364  Fatma Avcı       Istanbul   Max           750.0
+1367    +90 500 000 1367  Omar Arslan      NULL       Prepaid Lite  100.0
+1368    +90 500 000 1368  Leyla Taş        Ankara     Max           750.0
+1369    +90 500 000 1369  Burak Erdem      Istanbul   Starter       250.0
+1370    +90 500 000 1370  Amira Bouzid     Ankara     Starter       250.0
+1371    +90 500 000 1371  Yasmin Yıldız    Istanbul   Prepaid Lite  100.0
+1372    +90 500 000 1372  Can Avcı         Gaziantep  Plus          450.0
+1373    +90 500 000 1373  Hakan Acar       Ankara     Starter       250.0
+1374    +90 500 000 1374  Leyla Haddad     Ankara     Prepaid Plus  180.0
+1375    +90 500 000 1375  Yusuf Arslan     Bursa      Max           750.0
+1376    +90 500 000 1376  Yasmin Aksoy     Konya      Starter       250.0
+1377    +90 500 000 1377  Derya Bouzid     Bursa      Max           750.0
+1378    +90 500 000 1378  Mehmet Yılmaz    Adana      Prepaid Lite  100.0
+1379    +90 500 000 1379  Selin Türk       Ankara     Plus          450.0
+1381    +90 500 000 1381  Esra Karaca      Izmir      Plus          450.0
+1382    +90 500 000 1382  Esra Doğan       Izmir      Max           750.0
+1385    +90 500 000 1385  Leyla Demir      Ankara     Starter       250.0
+1386    +90 500 000 1386  Merve Yıldız     Izmir      Plus          450.0
+1387    +90 500 000 1387  Karim Benali     Adana      Max           750.0
+1388    +90 500 000 1388  Esra Demir       Istanbul   Prepaid Plus  180.0
+1389    +90 500 000 1389  Amira Mansouri   Bursa      Starter       250.0
+1390    +90 500 000 1390  Leyla Bulut      Antalya    Max           750.0
+1391    +90 500 000 1391  Merve Erdem      Istanbul   Starter       250.0
+1392    +90 500 000 1392  Ece Haddad       Istanbul   Prepaid Lite  100.0
+1393    +90 500 000 1393  Merve Bulut      Istanbul   Prepaid Lite  100.0
+1394    +90 500 000 1394  Sara Bouzid      Istanbul   Plus          450.0
+1395    +90 500 000 1395  Mustafa Türk     Ankara     Starter       250.0
+1396    +90 500 000 1396  Amira Mansouri   Bursa      Prepaid Lite  100.0
+1397    +90 500 000 1397  Ayşe Yılmaz      Ankara     Prepaid Plus  180.0
+1398    +90 500 000 1398  Murat Doğan      Istanbul   Plus          450.0
+1399    +90 500 000 1399  Nour Şahin       Ankara     Starter       250.0
+1400    +90 500 000 1400  Kerem Kaya       Istanbul   Max           750.0
+1401    +90 500 000 1401  Deniz Erdem      Istanbul   Prepaid Plus  180.0
+1403    +90 500 000 1403  Ece Koç          Konya      Max           750.0
+1404    +90 500 000 1404  Merve Bouzid     Ankara     Plus          450.0
+1405    +90 500 000 1405  Nour Aydın       Konya      Prepaid Plus  180.0
+1406    +90 500 000 1406  Deniz Türk       Gaziantep  Prepaid Lite  100.0
+1407    +90 500 000 1407  Mehmet Aydın     Izmir      Prepaid Lite  100.0
+1408    +90 500 000 1408  Omar Özdemir     Ankara     Starter       250.0
+1409    +90 500 000 1409  Zeynep Aksoy     Konya      Plus          450.0
+1410    +90 500 000 1410  Esra Haddad      Adana      Prepaid Lite  100.0
+1413    +90 500 000 1413  Murat Korkmaz    Ankara     Prepaid Lite  100.0
+1414    +90 500 000 1414  Fatma Korkmaz    Istanbul   Starter       250.0
+1415    +90 500 000 1415  Derya Aksoy      Antalya    Plus          450.0
+1416    +90 500 000 1416  Merve Korkmaz    Istanbul   Starter       250.0
+1417    +90 500 000 1417  Fatma Yıldız     Istanbul   Plus          450.0
+1418    +90 500 000 1418  Esra Arslan      Istanbul   Plus          450.0
+1419    +90 500 000 1419  Ayşe Işık        Adana      Starter       250.0
+1420    +90 500 000 1420  Fatma Aydın      Gaziantep  Prepaid Plus  180.0
+1421    +90 500 000 1421  Karim Çelik      Izmir      Starter       250.0
+1422    +90 500 000 1422  Leyla Mansouri   Istanbul   Prepaid Lite  100.0
+1423    +90 500 000 1423  Emre Karaca      Istanbul   Prepaid Plus  180.0
+1424    +90 500 000 1424  Emre Işık        Ankara     Prepaid Plus  180.0
+1425    +90 500 000 1425  Selin Çelik      Istanbul   Prepaid Lite  100.0
+1426    +90 500 000 1426  Hakan Arslan     NULL       Prepaid Lite  100.0
+1428    +90 500 000 1428  Merve Aydın      Ankara     Prepaid Lite  100.0
+1429    +90 500 000 1429  Ece Taş          Adana      Plus          450.0
+1430    +90 500 000 1430  Sara Haddad      Bursa      Max           750.0
+1431    +90 500 000 1431  Mustafa Aksoy    Bursa      Prepaid Lite  100.0
+1432    +90 500 000 1432  Cem Yıldız       Ankara     Plus          450.0
+1433    +90 500 000 1433  Karim Şahin      Istanbul   Prepaid Lite  100.0
+1434    +90 500 000 1434  Derya Türk       Antalya    Plus          450.0
+1435    +90 500 000 1435  Cem Avcı         Istanbul   Prepaid Lite  100.0
+1436    +90 500 000 1436  Cem Arslan       Adana      Prepaid Plus  180.0
+1437    +90 500 000 1437  Emre Şahin       Ankara     Starter       250.0
+1438    +90 500 000 1438  Tarek Bulut      Izmir      Prepaid Plus  180.0
+1440    +90 500 000 1440  Ece Bulut        Konya      Plus          450.0
+1441    +90 500 000 1441  Amira Koç        Izmir      Prepaid Plus  180.0
+1442    +90 500 000 1442  Fatma Haddad     Istanbul   Prepaid Lite  100.0
+1445    +90 500 000 1445  Omar Aksoy       Izmir      Prepaid Plus  180.0
+1448    +90 500 000 1448  Ece Erdem        Gaziantep  Prepaid Lite  100.0
+1450    +90 500 000 1450  Hakan Mansouri   Gaziantep  Prepaid Plus  180.0
+1451    +90 500 000 1451  Yasmin Acar      Izmir      Prepaid Plus  180.0
+1452    +90 500 000 1452  Nour Bouzid      Istanbul   Max           750.0
+1454    +90 500 000 1454  Amira Koç        Izmir      Starter       250.0
+1456    +90 500 000 1456  Omar Tekin       Gaziantep  Starter       250.0
+1458    +90 500 000 1458  Zeynep Avcı      Antalya    Prepaid Lite  100.0
+1459    +90 500 000 1459  Nour Doğan       Istanbul   Prepaid Lite  100.0
+1460    +90 500 000 1460  Selin Bouzid     Izmir      Prepaid Plus  180.0
+1461    +90 500 000 1461  Hakan Güneş      Gaziantep  Prepaid Lite  100.0
+1463    +90 500 000 1463  Omar Koç         Ankara     Prepaid Plus  180.0
+1464    +90 500 000 1464  Hakan Güneş      Konya      Plus          450.0
+1465    +90 500 000 1465  Deniz Aydın      Antalya    Prepaid Lite  100.0
+1466    +90 500 000 1466  Nour Bouzid      Istanbul   Prepaid Lite  100.0
+1467    +90 500 000 1467  Cem Demir        Izmir      Max           750.0
+1468    +90 500 000 1468  Emre Özdemir     Ankara     Starter       250.0
+1469    +90 500 000 1469  Fatma Bouzid     Bursa      Prepaid Lite  100.0
+1470    +90 500 000 1470  Hakan Güneş      NULL       Plus          450.0
+1471    +90 500 000 1471  Amira Bouzid     Antalya    Plus          450.0
+1472    +90 500 000 1472  Kerem Tekin      Gaziantep  Starter       250.0
+1473    +90 500 000 1473  Kerem Benali     Ankara     Prepaid Plus  180.0
+1474    +90 500 000 1474  Ahmet Doğan      Izmir      Prepaid Lite  100.0
+1475    +90 500 000 1475  Esra Polat       Adana      Prepaid Lite  100.0
+1476    +90 500 000 1476  Kerem Benali     Izmir      Starter       250.0
+1477    +90 500 000 1477  Amira Taş        Ankara     Prepaid Lite  100.0
+1478    +90 500 000 1478  Yasmin Yılmaz    Izmir      Plus          450.0
+1479    +90 500 000 1479  Emre Koç         Istanbul   Starter       250.0
+1480    +90 500 000 1480  Yasmin Şahin     Istanbul   Starter       250.0
+1481    +90 500 000 1481  Ece Kaya         Ankara     Starter       250.0
+1482    +90 500 000 1482  Murat Doğan      Istanbul   Prepaid Plus  180.0
+1484    +90 500 000 1484  Kerem Benali     Izmir      Starter       250.0
+1485    +90 500 000 1485  Fatma Yıldız     Istanbul   Starter       250.0
+1486    +90 500 000 1486  Yusuf Arslan     Bursa      Max           750.0
+1487    +90 500 000 1487  Can Kaya         Istanbul   Plus          450.0
+1488    +90 500 000 1488  Amira Aksoy      Gaziantep  Starter       250.0
+1489    +90 500 000 1489  Kerem Haddad     Istanbul   Plus          450.0
+1490    +90 500 000 1490  Can Kurt         Gaziantep  Plus          450.0
+1491    +90 500 000 1491  Merve Öztürk     Antalya    Plus          450.0
+1492    +90 500 000 1492  Burak Koç        Izmir      Plus          450.0
+1493    +90 500 000 1493  Mustafa Erdem    Ankara     Plus          450.0
+1495    +90 500 000 1495  Esra Benali      Istanbul   Prepaid Lite  100.0
+1496    +90 500 000 1496  Ayşe Çelik       Istanbul   Prepaid Lite  100.0
+1497    +90 500 000 1497  Can Şahin        Istanbul   Starter       250.0
+1499    +90 500 000 1499  Derya Kaya       Istanbul   Plus          450.0
+1500    +90 500 000 1500  Omar Koç         Izmir      Prepaid Plus  180.0
+

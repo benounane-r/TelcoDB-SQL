@@ -1,1 +1,0 @@
-SELECT * FROM plans WHERE monthly_fee > 400 ORDER BY monthly_fee ASC

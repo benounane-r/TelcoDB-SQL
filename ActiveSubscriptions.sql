@@ -1,1 +1,0 @@
-SELECT * FROM subscriptions WHERE status = 'active'
